@@ -1,0 +1,17 @@
+<div class="item" [ngClass]="{'selected':selected, 'group':group}">
+  <!-- <div class="item-thumbnail">
+    <img src="{{group.label}}">
+  </div> -->
+  <div class="item-body">
+    <div class='item-text'>
+      <div class="item-title">
+        {{group.name}}
+      </div>
+      <div class="item-subtitle" [ngClass]="{'red':private}">
+        {{group.users.length}} INTEGRANTES 
+      </div>
+    </div>
+    <div *ngIf="private" class="icon icon-lock"></div>
+  </div>
+  <app-item-info [private]="private" [joined]="joined" [joinGroup]="joinGroup" [selected]="selected" [group]="group" [albumId]="albumId" *ngIf="(selected && private) || (selected && !private) || (selected && !private && joined)"></app-item-info>
+</div>

@@ -1,0 +1,24 @@
+<div class="item">
+  <!-- <div class="item-thumbnail">
+    <img src="{{group.label}}">
+  </div> -->
+  <div class="item-body">
+    <div class="item-ranking">
+      <img src="assets/img/1.png" *ngIf="ranking == 0">
+      <img src="assets/img/2.png" *ngIf="ranking == 1">
+      <img src="assets/img/3.png" *ngIf="ranking == 2">
+      <img src="assets/img/cuadro.png" *ngIf="ranking >= 3">
+      <div class="ranking-number" *ngIf="ranking >= 3">{{ranking + 1}}</div>
+    </div>
+    <div class='item-text'>
+      <div class="item-title">
+        {{user.first_name}} {{user.last_name}}
+      </div>
+      <div class="item-subtitle">
+        <span [ngClass]="{'high-point': ranking < 3, 'low-point': ranking >= 3}">{{points}} </span> <span [ngClass]="{'high-text': ranking < 3, 'low-text': ranking >= 3}">PUNTOS</span> 
+      </div>
+    </div>
+    <!-- <div *ngIf="private" class="icon icon-lock"></div> -->
+  </div>
+  <!-- <app-item-info [private]="private" [joined]="joined" [joinGroup]="joinGroup" [selected]="selected" [group]="group" *ngIf="(selected && private) || (selected && !private) || (selected && !private && joined)"></app-item-info> -->
+</div>

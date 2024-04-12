@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "chromos-staging": "chromos-cc861",
+    "default": "chromos-cc861"
+  }
+}

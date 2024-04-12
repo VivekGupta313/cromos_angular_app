@@ -1,0 +1,97 @@
+<div class="interactive-albums-block block">
+  <div class="block-title" *ngIf="inCollection">EXPLORA NUESTROS CROMOS</div>
+  <div class="block-albums">
+    <div class="block-inner">
+      <div class="block-subtitle" *ngIf="inCollection">ejemplos de album completo</div>
+      <div class="albums-list">
+        <div class="albums-list-inner">
+          <!-- <div class="albums-col" *ngFor="let col of [1,2]"> -->
+          <div class='albums-col' *ngIf="!images">
+            <!-- <div *ngIf="!imagesSliceLeft || imagesSliceLeft?.length === 0"> -->
+            <div class="album-item" *ngFor="let album of cards1">
+              <div class="album-inner">
+                <div class="album-img" *ngIf="!album.isOpened">
+                  <div class="number">{{album.nrOfCard}}</div>
+                  <img [src]="album.url">
+                  <div class="album-icon" (click)="openDescription(album)"><span class="icon icon-info"></span></div>
+                </div>
+                <div class="description-container" *ngIf="album.isOpened">
+                  <p class="title">{{album.title}}</p>
+                  <div class="close-container" (click)="openDescription(album)">
+                    <span>&times;</span>
+                  </div>
+
+                  <p class="description-item">{{album.description}}</p>
+                </div>
+                <!-- <div class="album-title">xxxxxxx</div>
+                <div class="album-content">xxxxx</div> -->
+                <!-- <a class="album-link"></a> -->
+              </div>
+              <div class="card-title" (click)="openDescription(album)">{{album.title}}</div>
+            </div>
+          </div>
+          <div class='albums-col' *ngIf="!images">
+            <div class="album-item" *ngFor="let album of cards2">
+              <div class="album-inner">
+                <div class="album-img" *ngIf="!album.isOpened">
+                  <div class="number">{{album.nrOfCard}}</div>
+                  <img [src]="album.url">
+                  <div class="album-icon" (click)="openDescription(album)"><span class="icon icon-info"></span></div>
+                </div>
+                <div class="description-container" *ngIf="album.isOpened">
+                  <p class="title">{{album.title}}</p>
+                  <div class="close-container" (click)="openDescription(album)">
+                    <span>&times;</span>
+                  </div>
+
+                  <p class="description-item">{{album.description}}</p>
+                </div>
+                <!-- <div class="album-title">xxxxxxx</div>
+                <div class="album-content">xxxxx</div> -->
+                <!-- <a class="album-link"></a> -->
+              </div>
+              <div class="card-title" (click)="openDescription(album)">{{album.title}}</div>
+            </div>
+          </div>
+          <div class="albums-col" *ngIf="images">
+            <div class="album-item" *ngFor="let album of images | slice:0:4;let i = index">
+              <div class="album-inner">
+                <div class="album-img">
+                  <img appImgPreloader="{{album?.url}}" [class.hideImg]="selectedIndex === i+8" alt="">
+                  <div class="album-icon" (click)="setIndex1(i)"><span class="icon icon-info"></span></div>
+                  <div class='album-description' [class.showDesc]="selectedIndex === i+8">{{album?.description}}
+                  </div>
+                </div>
+                <div class="album-title">{{album?.imgName}}</div>
+                <div class="album-content">{{album?.title}}</div>
+                <a class="album-link"></a>
+              </div>
+            </div>
+          </div>
+          <div class="albums-col" *ngIf="images">
+            <div class="album-item" *ngFor="let album of images | slice:4:8;let i = index">
+              <div class="album-inner">
+                <div class="album-img">
+                  <img appImgPreloader="{{album?.url}}" [class.hideImg]="selectedIndex === i+8" alt="" mwlDroppable
+                  (drop)="this.droppedData = $event.dropData">
+                  <div class="album-icon" (click)="setIndex1(i)"><span class="icon icon-info"></span></div>
+                  <div class='album-description' [class.showDesc]="selectedIndex === i+8">{{album?.description}}
+                  </div>
+                </div>
+                <div class="album-title">{{album?.imgName}}</div>
+                <div class="album-content">{{album?.title}}</div>
+                <a class="album-link"></a>
+              </div>
+            </div>
+          </div>
+          <div class="book-style"></div>
+          <div class="albums-pages">1 - 8</div>
+          <div class="albums-list-navi">
+            <a class="navi-left" (click)='previouse()' [ngClass]="{'beginingOfArray':beginingOfArray}"><span class="icon icon-arrow_l"></span></a>
+            <a class="navi-right" (click)='next()' [ngClass]="{'endOfArray':endOfArray}"><span class="icon icon-arrow_r"></span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

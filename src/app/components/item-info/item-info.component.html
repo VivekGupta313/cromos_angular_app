@@ -1,0 +1,41 @@
+<div class="item-info" *ngIf="closed">
+  <a class="item-info-close" (click)="closed = ! closed">
+    <span class="icon icon-close"></span>
+  </a>
+  <div class="item-info-text" *ngIf="private && !joinGroup">
+    ESTE GRUPO ES PRIVADO Y
+    NO PUEDES AGRUPARTE AHÍ.
+    SELECCIONA OTRO :)
+  </div>
+  <div class="item-info-text body" *ngIf="!private && joined && !joinGroup">
+    HAS SELECCIONADO
+    UN GRUPO DEL QUE
+    YA SOS MIEMBRO:
+    DESEAS DESAGRUPARTE? 
+    <div class="buttons">
+      <button class="btn btn-round btn-green"(click)="cancel()">NO</button>
+      <button class="btn btn-round btn-white btn-color-red" (click)="confirm()">SI</button>
+      <div class="icon icon-user"></div>
+      <div class="icon icon-arrow-back"></div>
+    </div>
+  </div>
+  <div class="item-info-text" *ngIf="joinGroup && private">
+    <div class="item-info-maintxt">THIS GROUP IS PRIVATE</div>
+    <div class="item-info-subtext">Please enter access code to join.</div>
+    <div class="item-access-code">
+      <input type="text" name="accessCode" [(ngModel)]="accessCode" maxlength="4" placeholder="Group Access Code">
+    </div>
+    <div class="buttons">
+      <button class="btn btn-round btn-green" (click)="register()">YES</button>
+      <button class="btn btn-round btn-white btn-color-red" (click)="closed = ! closed">NO</button>
+    </div>
+  </div>
+  <div class="item-info-text" *ngIf="joinGroup && !private">
+    <div class="item-info-maintxt">THIS GROUP IS PUBLIC</div>
+    <div class="item-info-subtext">Would you like to join?</div>
+    <div class="buttons">
+      <button class="btn btn-round btn-green" (click)="register()">YES</button>
+      <button class="btn btn-round btn-white btn-color-red" (click)="closed = ! closed">NO</button>
+    </div>
+  </div>
+</div>

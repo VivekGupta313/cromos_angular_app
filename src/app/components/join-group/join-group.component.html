@@ -1,0 +1,27 @@
+<div class="join-group">
+	<div class="block-title">PLAY WITHOUT A GROUP</div>
+	<div *ngIf="isRegister" class="block-sub-title">
+		Continue without a group <br>
+		(Card Trading and Ranking is not available) <br><br><br>
+		<a class="btn btn-round btn-green continue-btn" (click)="proceedNoGroup()">Continue</a>
+	</div>
+	<div *ngIf="!isRegister" class="block-sub-title">
+		Quit Playing<br><br><br>
+		<a class="btn btn-round btn-green continue-btn" (click)="stopPlaying()">Discontinue</a>
+	</div>
+	<div *ngIf="isRegister" class="block-sub-title">or</div>
+
+	<div *ngIf="isRegister" class="block-title">JOIN A GROUP</div>
+	<div *ngIf="isRegister" class="block-sub-title">Select a group from the list.</div>
+		
+	<div *ngIf="isRegister" class="block-content">
+        <div class="block-list">
+	        <ul *ngIf='groups$|async as groups'>
+	        	<li *ngFor="let group of groups; let i = index">
+	            	<app-item [group]='group' [private]="group.type === 'private'" [selected]='selected[i]' [joined]='joined' [joinGroup]="true" [albumId]="albumId" (click)='selectedGroup(group,i)'></app-item>
+	          	</li>
+	        </ul>
+	    </div>
+	</div>
+	<div class="block-footer">¿Deseas saber más sobre Grupos? <a [routerLink]="'/help'">AYUDA</a></div>
+</div>

@@ -1,0 +1,20 @@
+<div class="block finish-registration">
+  <div class="block-header corner">
+    <h1>gracias por registrarte!</h1>
+  </div>
+  <div class="block-inner">
+    <div class="block-content">
+      <div class="block-decorations"></div>
+      Casi estás dentro de ALBUM de CROMOS. Por favor comprueba tu correo! <br>
+      Te enviamos un correo electrónico con <span>TU CÓDIGO DE ACTIVACIÓN</span> a <strong>{{(user$|async)?.email}}</strong><br>
+      Por favor, <strong>HAZ CLICK o copia el enlace de activación</strong> de ese correo, para poder iniciar tu
+      sesión.
+      <br>
+      Comprueba tu carpeta de CORREO BASURA si no encuentras el CORREO DE ACTIVACIÓN.
+      <div class="block-info">
+        <p>Ante cualquier problema en el registro, escríbenos aquí: <a href="mailto:registros@albumdecromos.com">registros@albumdecromos.com</a></p>
+      </div>
+    </div>
+    <button class="btn btn-round" (click)="resendMailVerification()">Re-send mail verification</button>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="table-list">
+  <div>
+    <button class="btn list-button" (click)="deleteSelectedRows()" [disabled]="!rowsSelected()">
+      Delete Selected Language
+    </button>
+  </div>
+
+  <div class='table'>
+    <ag-grid-angular #agGrid style="width: 100%; height: 500px;" id="myGrid" class="ag-theme-balham" [enableSorting]="true"
+      [enableFilter]="true" [rowData]="languages$|async" [columnDefs]="cols" [enableColResize]="true"
+      (cellValueChanged)="onCellValueChanged($event)" rowSelection="single" suppressRowClickSelection (gridReady)="onGridReady($event)">
+    </ag-grid-angular>
+  </div>
+</div>

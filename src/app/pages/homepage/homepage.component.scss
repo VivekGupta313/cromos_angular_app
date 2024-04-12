@@ -1,0 +1,106 @@
+@import "~src/assets/scss/vars";
+@import "~src/assets/scss/mixins";
+
+.hero-block {
+  background-color: #e6e6e6;
+  padding: 4rem 0 2rem;
+  .block-inner {
+    @extend .container;
+  }
+  .block-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .block-img {
+      flex: 0 0 55rem;
+    }
+    .block-content {
+      font-family: $font-exo;
+      font-size: 3.7rem;
+      color: #000;
+      margin-left: 5rem;
+      strong {
+        display: block;
+        margin-top: 3rem;
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+
+.block-features {
+  margin-bottom: 2rem;
+  .feature-title {
+    background-color: #22b573;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    font-size: 6.6rem;
+    font-family: $font-axis;
+    margin: 1.5rem 0;
+    @extend .corner;
+    &:after, &:before {
+      z-index: 101;
+    }
+  }
+  .feature-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50rem;
+    @extend .corner;
+    &:after, &:before {
+      z-index: 100;
+    }
+    + .feature-item {
+      margin-top: 1.5rem;
+    }
+    &:nth-child(odd) {
+      flex-direction: row-reverse;
+      .item-img {
+        justify-content: flex-end;
+      }
+      .item-content {
+        margin-left: 0;
+        margin-right: 10rem;
+      }
+    }
+    &:nth-child(2), &:nth-child(4) {
+      background-color: #ededed;
+    }
+    &:nth-child(3) {
+      background-color: #dedbe1;
+    }
+    &:nth-child(5) {
+      background-color: #c9c9c9;
+    }
+    .item-img, .item-content {
+      //flex: 1;
+    }
+    .item-img {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      position: relative;
+      z-index: 103;
+      flex: 0 0 500px;
+      img {
+        max-height: 95%;
+      }
+    }
+    .item-content {
+      margin-left: 10rem;
+      .item-title {
+        font-size: 5rem;
+        font-family: $font-axis;
+        margin-bottom: 2rem;
+      }
+      .item-text {
+        font-size: 3.5rem;
+        font-family: $font-quattrocento;
+      }
+    }
+  }
+}

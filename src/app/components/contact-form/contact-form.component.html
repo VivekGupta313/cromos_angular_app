@@ -1,0 +1,19 @@
+<div class="block block-contact-form">
+  <div class="block-inner">
+    <div class="contact-form">
+      <div class="form-title">contáctanos</div>
+      <form #contactForm="ngForm" (submit)="sentMail(contactForm); contactForm.reset()">
+        <div class="form-line" *ngFor="let formField of formFields">
+          <input *ngIf="formField.type === 'text'" type="text" id="{{formField.id}}" [(ngModel)]="formField.model"
+            [ngModelOptions]="{standalone: true}">
+          <textarea *ngIf="formField.type === 'textarea'" id="{{formField.id}}" [(ngModel)]="formField.model"
+            [ngModelOptions]="{standalone: true}"></textarea>
+          <label for="{{formField.id}}" class="form-label" [innerHTML]="formField.label" [ngClass]="{'fieldFilled': formField.model}"></label>
+        </div>
+        <div class="form-line submit-line">
+          <button type='submit' class="btn btn-pr" [disabled]='contactForm.form.invalid'>ENVIAR</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

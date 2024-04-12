@@ -1,0 +1,21 @@
+<div class="form">
+  <div class="form-panel one">
+    <div class="form-header">
+      <h1>Add Collection</h1>
+    </div>
+    <div class="form-content">
+      <form #addCollectionForm="ngForm" (submit)="addCollection($event); addCollectionForm.form.reset()">
+        <div class="form-group">
+          <label for="collection">Collection</label>
+          <input type="text" id="collection" name="collection" [(ngModel)]="collection.collection" required />
+        </div>
+        <div class="
+                  form-group">
+          <button [disabled]="addCollectionForm.form.invalid">Add Collection</button>
+        </div>
+      </form>
+    </div>
+    <app-collection-list></app-collection-list>
+  </div>
+
+</div>

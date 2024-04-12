@@ -1,0 +1,265 @@
+// Font Family
+$body-font: 'Roboto';
+
+// Font Weights
+$thin: 100;
+$light: 300;
+$regular: 400;
+$semibold: 500;
+$bold: 700;
+$ultra: 800;
+
+// Base Font
+$base-font-family: $body-font,
+sans-serif;
+$base-font-size: 14px;
+$base-font-weight: $regular;
+$base-line-height: 1.6em;
+
+// Colors
+$black: #000000;
+$dark-gray: rgba($black, 0.8);
+$gray: rgba($black, 0.6);
+$light-gray: rgba($black, 0.4);
+$lighter-gray: rgba($black, 0.2);
+$white: #ffffff;
+$accent: #4285f4;
+
+// Form Settings
+$max-width: 700px;
+$max-height: 400px;
+$gutters: 24px;
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    background: rgba($black, 0.8);
+    width: 100%;
+    height: 100%;
+}
+
+// layout
+
+.formAll {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    &--one {
+        // border: 1px solid green;
+    }
+
+    &--two {
+        // border: 1px solid orange;
+        margin: 0 auto;
+    }
+}
+
+.form {
+    position: relative;
+    background: $white;
+    width: $max-width;
+    height: 100%;
+    border-radius: 4px;
+    box-shadow: 0 0 30px rgba($black, 0.1);
+    box-sizing: border-box;
+    margin: 10px auto 10px;
+    overflow: hidden;
+
+    &-group {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: flex-start;
+        margin: 0 0 10px;
+
+        &:last-child {
+            margin: 0;
+        }
+
+        .labels {
+            flex: 1;
+            margin: 0 0 10px;
+            color: $gray;
+            font-size: 12px;
+            font-weight: $semibold;
+            line-height: 1;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+        }
+
+        .inputs,
+        select {
+            outline: none;
+            display: inline-block;
+            background: rgba($black, 0.1);
+            width: 100%;
+            border: 0;
+            border-radius: 4px;
+            box-sizing: border-box;
+            padding: 12px 20px;
+            color: $gray;
+            font-family: inherit;
+            font-size: 12px;
+            font-weight: $semibold;
+            line-height: inherit;
+            transition: 0.3s ease;
+
+            &:focus {
+                color: $dark-gray;
+            }
+        }
+
+        button {
+            outline: none;
+            background: $accent;
+            width: 100%;
+            border: 0;
+            border-radius: 4px;
+            padding: 12px 20px;
+            color: $white;
+            font-family: inherit;
+            font-size: 12px;
+            font-weight: $semibold;
+            line-height: inherit;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+
+        button:disabled {
+            opacity: 0.65;
+            cursor: not-allowed;
+        }
+    }
+
+    // Panel
+    &-panel {
+        padding: 10px 60px;
+        box-sizing: border-box;
+
+        // Panel One
+        &.one {
+            &:before {
+                @extend .overlay;
+                content: '';
+                display: block;
+                opacity: 0;
+                visibility: hidden;
+                transition: 0.3s ease;
+            }
+
+            &.hidden {
+                &:before {
+                    display: block;
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+        }
+    }
+
+    // Header
+    &-header {
+        margin: 0 0 20px;
+
+        h2 {
+            color: $accent;
+            font-size: 18px;
+            font-weight: $bold;
+            text-transform: uppercase;
+        }
+    }
+}
+
+// dropzone
+#dropzone {
+    border-radius: 100%;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    cursor: pointer;
+    background: #f4f4f4;
+    // display: table;
+    background-size: cover;
+    background-position: center center;
+    box-shadow: 0 5px 8px rgba(black, 0.35);
+
+    .dashes {
+        border-radius: 100%;
+        width: 100%;
+        height: 100%;
+        border: 4px dashed #ddd;
+        opacity: 1;
+        position: relative;
+    }
+
+    .dropzone-label {
+        text-align: center;
+        color: grey;
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 1.5rem;
+    }
+
+
+    &.dragging {
+        background-image: none !important;
+
+        .dashes {
+            animation-duration: 10s;
+            animation-name: spin;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            opacity: 1 !important;
+        }
+
+        .dropzone-label {
+            opacity: 0.5 !important;
+        }
+    }
+
+    &.hasImage {
+
+        .dashes,
+        .dropzone-label {
+            opacity: 0;
+            pointer-events: none;
+            user-select: none;
+        }
+    }
+
+}
+
+.image {
+    margin: auto;
+}
+
+.progress-bar {
+    font-size: 2rem;
+    margin-top: 10px;
+    font-weight: $bold;
+    text-align: center;
+
+    &--number {
+        z-index: 5;
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+progress::-webkit-progress-value {
+    transition: width 0.1s ease;
+}

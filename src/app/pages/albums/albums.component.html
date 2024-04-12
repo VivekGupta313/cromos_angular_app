@@ -1,0 +1,74 @@
+<div class="block block-albums-header">
+  <div class="block-decorations"></div>
+  <div class="block-inner">
+    <div class="block-title">¡BIENVENIDO {{(user$|async)?.displayName}}!</div>
+    <div class="block-content">
+      Ya puedes disfrutar de tus cromos. Comienza eligiendo tu primer album, para el que te regalaremos 3 cromos. <br>
+      Luego podrás sumar más cromos jugando Trivias y canjeando tus repetidas con otros usuarios. <br>
+      Tienes 3 meses para completar tus Albums. Máximo 3 albums con 100 cromos cada uno.
+    </div>
+  </div>
+</div>
+<div class="block block-albums-shelf">
+  <div class="shelf-info">
+    <div class="shelf-info-title">Vamos!</div>
+    <div class="shelf-info-content">
+      Completá <br>
+      tus estantes <br>
+      sumando <br>
+      albums y cromos.
+    </div>
+  </div>
+  <div class="shelf-img">
+    <img src="assets/img/albums-shelf-img.svg" alt="">
+    <div class="shelf-albums">
+      <div class="album-item album-item-orange" *ngFor="let album of albums; let i = index">
+        <div class="album-name">
+          {{album.name}}
+        </div>
+        <div class="album-item-stat">
+          <div class="stat-line">
+            <div class="stat-title">Díasrestantes</div>
+            <div class="stat-count">90</div>
+          </div>
+          <div class="stat-line">
+            <div class="stat-title">Cromos <br>que tienes</div>
+            <div class="stat-count">03</div>
+          </div>
+        </div>
+        <a class="album-item-link" (click)="openModal(album, 'trivia-first', i)"></a>
+      </div>
+      <!-- <div class="album-item album-item-blue">
+        <div class="album-item-stat">
+          <div class="stat-line">
+            <div class="stat-title">Díasrestantes</div>
+            <div class="stat-count">90</div>
+          </div>
+          <div class="stat-line">
+            <div class="stat-title">Cromos <br>que tienes</div>
+            <div class="stat-count">03</div>
+          </div>
+        </div>
+        <a class="album-item-link" (click)="openModal('trivia-first')"></a>
+      </div> -->
+      <!-- <div class="album-item album-item-green">
+        <div class="album-item-icon"><span class="icon icon-info-alert"></span></div>
+        <div class="album-item-stat">
+          <div class="stat-line">
+            <div class="stat-title">Díasrestantes</div>
+            <div class="stat-count">90</div>
+          </div>
+          <div class="stat-line">
+            <div class="stat-title">Cromos <br>que tienes</div>
+            <div class="stat-count">03</div>
+          </div>
+        </div>
+        <a class="album-item-link" (click)="openModal('trivia-first')"></a>
+      </div> -->
+    </div>
+  </div>
+  <div class="albums-shelf-navi">
+    <a class="btn btn-round btn-red" (click)="openGroupsModal('create_group')">CREAR GRUPO</a>
+    <a class="btn btn-round btn-green" (click)="openGroupsModal('my_groups')">VER MIS GRUPOS</a>
+  </div>
+</div>

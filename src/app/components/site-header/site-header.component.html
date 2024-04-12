@@ -1,0 +1,44 @@
+<header class="site-header" [ngClass]="{'home': router.url === '/'}">
+  <div class="header-inner">
+    <div class="header-logo">
+      <a href="/">
+        <img src="assets/img/app-logo.png" alt="">
+      </a>
+    </div>
+    <div class="header-menu">
+      <ul class='user-menu'>
+        <li [ngClass]="{'active': router.url === '/'}"><a [routerLink]="'/'">HOME</a></li>
+        <li [ngClass]="{'active': albums}" *ngIf="router.url === '/'"><a href="#albums" scrollTo (click)='features=false;albums=true;contacts=false'>ÁLBUMES</a></li>
+        <li [ngClass]="{'active': features}" *ngIf="router.url === '/'"><a href="#features" scrollTo (click)='features=true;albums=false;contacts=false'>
+            BENEFICIOS</a></li>
+        <li [ngClass]="{'active': contacts}" *ngIf="router.url === '/'"><a href="#contacts" scrollTo (click)='features=false;albums=false;contacts=true'>CONTACTO</a></li>
+        <li [ngClass]="{'active': router.url === '/collections'}" [ngClass]="{'active': router.url === '/collections'}"><a
+            [routerLink]="'/collections'">COLECCIONES</a></li>
+
+        <li [ngClass]="{'active': router.url === '/faq'}"><a [routerLink]="'/faq'">FAQ</a></li>
+        <li class="admin-list" *ngIf="user.role == 'admin'">
+          <a [ngClass]="{'active': router.url.includes('admin')}">Admin</a>
+          <ul>
+            <li><a [routerLink]="'/admin-albums'" routerLinkActive="active">Albums</a></li>
+            <li><a [routerLink]="'/admin-users'" routerLinkActive="active">Users</a></li>
+            <li><a [routerLink]="'/admin-questions'" routerLinkActive="active">Questions</a></li>
+            <li><a [routerLink]="'/admin-add-image'" routerLinkActive="active">Cards</a></li>
+            <li><a [routerLink]="'/admin-manage-image'" routerLinkActive="active">Manage Cards</a></li>
+            <li><a [routerLink]="'/configuration'" routerLinkActive="active">Configuration</a></li>
+          </ul>
+        </li>
+        <li *ngIf="isAuth"><a (click)="navigateTo()" routerLinkActive="active">ÁLBUMES</a>
+        </li>
+      </ul>
+      <div class="registro" *ngIf="!(user$|async) as user">
+        <a (click)="openAuthModal()" *ngIf="!user.emailVerified">REGISTRO</a>
+      </div>
+      <div class="auth" *ngIf="(user$|async) as user">
+        <ul>
+          <li><a [routerLink]="'/albums'" class="btn btn-str btn-green username" *ngIf="user">{{user.displayName}}</a></li>
+          <li><a class="btn btn-str sign-out" *ngIf="user" (click)='signOut()'>Sign OUT</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>

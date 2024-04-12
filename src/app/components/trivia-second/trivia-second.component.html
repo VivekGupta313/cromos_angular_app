@@ -1,0 +1,40 @@
+<div class="trivia-second-container">
+  <div class="header">
+    <img class="header-image-one" src="../../../assets/img/kid-girl.png">
+    <img class="header-image-two" src="../../../assets/img/stars.png">
+    <div class="header-text">BUENA DECISIÓN <br>
+      RESPONDE ESTA TRIVIA!
+    </div>
+  </div>
+  <div class="content">
+    <div class="content-trivia-img">
+      <img src={{image}} *ngIf="!questionObj && !questionObj.imageUrl">
+      <img [src]="questionObj.imageUrl" *ngIf="questionObj && questionObj.imageUrl">
+      <div class="image-number">24</div>
+    </div>
+    <div class="content-trivia">
+      {{questionObj.question}}
+      <div class="content-trivia-answers">
+        <div *ngFor="let answer of answers">
+          <div class="content-trivia-answer" (click)="chooseAnswer(answer)" [ngClass]="{'correct': chosenAnswer && (chosenAnswer.correct && chosenAnswer.answer == answer.answer), 'wrong': chosenAnswer && (!chosenAnswer.correct && chosenAnswer.answer == answer.answer)}">{{answer.answer}}</div>
+        </div>
+      </div>
+      <div class="response" *ngIf="chosenAnswer && !chosenAnswer.correct">
+        <span style="font-weight:bold">FALLASTE! NO TE PREOCUPES!!</span><br>
+        TIENES UNA CHANCE MÁS
+        <br>
+        <p>(si no lo logras,
+          reintentas mañana)</p>
+      </div>
+      <div class="response" *ngIf="chosenAnswer && chosenAnswer.correct">
+        <span style="font-weight:bold">FELICITACIONES! ACERTASTE!</span><br>
+        HAZ SUMADO <br>EL CROMO 24
+      </div>
+      <button class='btn btn-round btn-green bth-lg btn-left' *ngIf="hasAnswered" (click)="goToAlbum()">VER ALBUM</button>
+    </div>
+  </div>
+
+  <div class="footer">
+    <img src="../../../assets/img/stars_2.png">
+  </div>
+</div>

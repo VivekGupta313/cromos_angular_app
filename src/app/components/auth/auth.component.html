@@ -1,0 +1,66 @@
+<div class="auth-wrapper">
+  <div class="auth-part">
+    <form #signInForm="ngForm" class="login-form" (submit)="signIn(signInForm)">
+      <div class="form-title">inicia sesión con tu e-mail</div>
+      <div class="form-line">
+        <div class="form-field">
+          <input type="text" required placeholder="Tu correo electrónico*" name="email" [(ngModel)]="user.email">
+        </div>
+      </div>
+      <div class="form-line">
+        <div class="form-field">
+          <input type="password" required placeholder="Contraseña" name="password" [(ngModel)]="user.password">
+        </div>
+      </div>
+      <div class="form-line">
+        <div class="form-field checkbox-field">
+          <input type="checkbox" id="remember_me" [(ngModel)]="user.remember" [ngModelOptions]="{standalone: true}">
+          <label for="remember_me">Recuérdame en este ordenador</label>
+        </div>
+      </div>
+      <div class="form-line submit-line">
+        <button class="btn btn-round btn-orange" [disabled]="signInForm.form.invalid || !user.remember">ACCEDER</button>
+      </div>
+    </form>
+    <div class="text-center">or</div>
+    <div class="facebook-btn-container">
+      <button class="btn btn-round btn-blue" (click)="loginWithFacebook()">Login with Facebook</button>
+    </div>
+  </div>
+  <div class="auth-part">
+    <form #signUpForm="ngForm" (submit)="signUp()">
+      <div class="form-title">o Crea una cuenta</div>
+      <div class="form-line">
+        <div class="form-field">
+          <input type="text" placeholder="Tu nombre*" name="user_first_name" required [(ngModel)]="newUser.first_name">
+        </div>
+      </div>
+      <div class="form-line">
+        <div class="form-field">
+          <input type="text" placeholder="Tu apellido*" name="user_last_name" required [(ngModel)]="newUser.last_name">
+        </div>
+      </div>
+      <div class="form-line">
+        <div class="form-field">
+          <input type="text" placeholder="Tu correo electrónico*" name="email" required [(ngModel)]="newUser.email">
+          <div class="form-field-help">(este será tu nombre de usuario)</div>
+        </div>
+      </div>
+      <div class="form-line">
+        <div class="form-field">
+          <input type="password" placeholder="Contraseña" name="password" required [(ngModel)]="newUser.password">
+        </div>
+      </div>
+      <div class="form-line">
+        <div class="form-field checkbox-field">
+          <input type="checkbox" id="rules_reg" [(ngModel)]="newUser.agreed" [ngModelOptions]="{standalone: true}">
+          <label for="rules_reg">Soy mayor de 14 años y acepto las Condiciones <br>de uso y Política de privacidad.</label>
+        </div>
+      </div>
+      <div class="form-line submit-line">
+        <button class="btn btn-round btn-green" [disabled]="signUpForm.form.invalid || !newUser.agreed">REGISTRARSE</button>
+      </div>
+      <div class="form-help">es totalmente gratis</div>
+    </form>
+  </div>
+</div>

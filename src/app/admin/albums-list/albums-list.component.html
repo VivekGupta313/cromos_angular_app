@@ -1,0 +1,34 @@
+<!-- <div class="table-users" *ngIf="albums$|async as albums">
+  <div class="header">Users</div>
+  <table cellspacing="0">
+    <tr>
+      <!-- <th>Picture</th> -->
+<!-- <th>Collection</th>
+      <th>Name</th>
+      <th>Number Of Images</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+
+    <tr *ngFor="let album of albums"> -->
+<!-- <td><img src="http://lorempixel.com/100/100/people/1" alt="" /></td> -->
+<!-- <td>{{album.collection}}</td>
+      <td>{{album.name}}</td>
+      <td></td>
+      <td><button>Edit</button></td>
+      <td><button>Delete</button></td>
+    </tr>
+  </table>
+</div> -->
+<div>
+  <button class="btn list-button" (click)="deleteSelectedRows()" [disabled]="!rowsSelected()">
+    Delete Selected Album
+  </button>
+</div>
+
+<div class='table'>
+  <ag-grid-angular #agGrid style="width: 100%; height: 500px;" id="myGrid" class="ag-theme-balham" [enableSorting]="true"
+    [enableFilter]="true" [rowData]="albums$|async" [columnDefs]="cols" [enableColResize]="true" (cellValueChanged)="onCellValueChanged($event)"
+    rowSelection="single" suppressRowClickSelection (gridReady)="onGridReady($event)">
+  </ag-grid-angular>
+</div>

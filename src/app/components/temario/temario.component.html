@@ -1,0 +1,12 @@
+<div class="temario-container">
+    <!-- <div class="card-item" *ngFor="let card of albumCards">
+        <div class="card-img">
+            <div class="number">{{card.nrOfCard}}</div>
+            <img [src]="card.imageUrl" *ngIf="card.imageUrl">
+        </div>
+        <div class="album-title">{{card.title}}</div>
+    </div> -->
+    <div class="item" *ngFor="let card of albumCards">
+        {{card.nrOfCard}} - {{card.title}}
+    </div>
+</div>

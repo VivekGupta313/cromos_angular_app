@@ -1,0 +1,22 @@
+.buttons {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.table {
+    margin: 1rem auto;
+    width: 100%;
+    height: 500px;
+}
+
+.cell-wrap-text {
+    white-space: normal !important;
+}
+
+.list-button {
+    font-size: 2rem;
+    padding: 5px;
+    background: #4285F4;
+    color: #ffff;
+    border-radius: 2px;
+}

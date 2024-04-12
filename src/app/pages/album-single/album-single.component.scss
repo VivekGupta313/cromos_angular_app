@@ -1,0 +1,147 @@
+@import "~src/assets/scss/vars";
+@import "~src/assets/scss/mixins";
+
+.block-collections-header {
+  height: 20rem;
+  margin-top: 2rem;
+  @extend .corner;
+  background-color: #333333;
+  .block-inner {
+    @extend .container;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .block-title {
+      text-transform: uppercase;
+      color: #CCCCCC;
+      font-size: 4rem;
+      font-weight: bold;
+      line-height: 1em;
+      font-family: $font-exo;
+      .collection {
+        &.color-lemon {
+          color: $color-lemon;
+          font-weight: bold;
+        }
+      }
+      strong {
+        color: #fff;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.block-single-album {
+  margin-top: 2rem;
+  background-color: #D5D4D6;
+  padding: 8rem 0;
+  .block-inner {
+    @extend .container;
+    max-width: 1400px;
+    display: flex;
+    align-items: center;
+  }
+  .album-navi {
+    margin-right: 5rem;
+    .navi-links {
+      ul {
+        @extend .panel-list;
+        li {
+          + li {
+            margin-top: 1rem;
+          }
+          a {
+            display: block;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+  .album-description {
+    flex: 1;
+    .album-greeting {
+      font-family: $font-axis;
+      text-transform: uppercase;
+      font-size: 2.3rem;
+      margin-bottom: 1.5rem;
+      color: #4d4d4d;
+    }
+    .album-title {
+      font-family: $font-axis;
+      font-size: 4rem;
+      color: #4d4d4d;
+    }
+    .album-collection {
+      font-family: $font-axis;
+      font-size: 2.8rem;
+      margin-bottom: 2rem;
+      &.color-lemon {
+        color: $color-lemon;
+      }
+    }
+    .album-stats {
+      font-family: $font-quattrocento;
+      font-size: 3.4rem;
+      + .album-stats {
+        margin-top: 1rem;
+      }
+    }
+    .album-help {
+      margin-top: 3rem;
+      font-size: 2.8rem;
+      font-family: $font-quattrocento;
+      color: #333333;
+      line-height: 1.5em;
+      .album-help-line {
+        display: flex;
+        + .album-help-line {
+          margin-top: 2rem;
+        }
+        .icon {
+          flex: 0 0 2.2rem;
+          margin: 1rem 1rem 0 0;
+        }
+      }
+      .underlined {
+        border-bottom: 2px solid $color-lemon;
+      }
+    }
+    .album-start {
+      margin-top: 4rem;
+    }
+  }
+  .album-preview {
+    flex: 0 0 650px;
+    height: 692px;
+    position: relative;
+    .preview-cover {
+      @extend .overlay;
+      z-index: 20;
+    }
+    .preview-content {
+      position: relative;
+      margin: 24px 33px 0 67px;
+      height: 635px;
+      .preview-bg {
+        @extend .overlay;
+        &.bg-lemon {
+          background-color: $color-lemon;
+        }
+      }
+      .preview-img {
+        margin-left: 50px;
+        height: 100%;
+        position: relative;
+        z-index: 1;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}

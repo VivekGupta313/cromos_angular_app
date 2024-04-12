@@ -1,0 +1,106 @@
+<div class="block-cardexchange-header">
+  <div class="block-cardexchange-decorations"></div>
+  <div class="block-inner">
+    <div class="block-title">
+      GENIAL ¡VAMOS A CANJEAR CROMOS!<br>
+      PARA LA COLECCIÓN <span class="collection color-lemon">BIOLOGÍA</span> > ALBUM <strong>CAMPO</strong>
+    </div>
+    <!-- <div class="block-title">
+      COLECCIÓN <span class="collection color-lemon">{{albumSingle?.collection}}</span> > ALBUM <strong>{{albumSingle?.name}}</strong>
+    </div> -->
+  </div>
+</div>
+<div class="content-cardexchange" *ngIf="isExchange == 0 && !selectCardsForDeal">
+  <div class="content-text">
+    Escoge el cromo o persona para hacer el intercambio <br>
+  </div>
+  <div class="note" *ngIf="selected.selectType == 'user'">(Showing repeated cards of the selected user)</div>
+  <div class="note" *ngIf="selected.selectType == 'card' || selected.selectType == ''">(Showing your repeated cards)</div>
+  <div class="content-cards">
+    <div class="content-cards-card" *ngFor="let card of cards; let i = index">
+      <div class="single-card" [ngClass]="{'selected' : selectedCardIdx === i}" (click)="selectCard(card, i)">
+        {{card}}
+      </div>
+    </div>
+  </div>
+  <div class="content-text-small">
+    (Tus cromos repetidos para canjear)
+  </div>
+  <div class="content-user-list">
+    <div class="user" *ngFor="let user of users; let i = index;">
+      <div class="user-item" *ngIf="user.uid != userId" [ngClass]="{'selected' : selectedUserIdx === i}" (click)="selectUser(user, i)">
+        <h1>{{user.first_name}} {{user.last_name}}</h1>
+        {{user.repeatNo}} CROMOS REPETIDOS
+      </div>
+    </div>
+  </div>
+  <div class="content-text-small">
+    (Personas del grupo que tienen Cromos que te faltan)
+  </div>
+  <div class="content-button">
+    <button class="btn btn-round btn-green" (click)='nextStep()'>CONFIRMA INTERCAMBIO</button>
+  </div>
+</div>
+<div class="content-cardexchange" *ngIf="isExchange == 0 && selectCardsForDeal">
+  <div class="content-text">
+    Escoge el cromo o persona para hacer el intercambio <br>
+  </div>
+  <div class="content-cards">
+    <div class="content-cards-card selected">
+      <div class="request-card" [ngStyle]="getCardImage(selectedCardData, true)">
+        <div class="number">
+          {{selectedCardData.cardNumber}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="content-text-small">
+    (Tus cromos repetidos para canjear)
+  </div>
+  <div class="content-cards">
+    <div class="content-cards-card" *ngFor="let card of cardsOpts; let i = index" [ngClass]="{'selected' : isDealCardSelected(i)}">
+      <div class="request-card" [ngStyle]="getCardImage(card, true)" (click)="selectDealCard(card, i)">
+        <div class="number">
+          {{card.cardNumber}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="content-text-small">
+    (Personas del grupo que tienen Cromos que te faltan)
+  </div>
+  <div class="content-button">
+    <button class="btn btn-round btn-green" (click)='sendProposal()'>Send Proposal</button>
+  </div>
+</div>
+<div class="content-cardexchange" *ngIf="isExchange == 1 && requestor && dispCards">
+  <div class="content-text">
+    {{requestor.displayName}} te propone este intercambio
+  </div>
+  <div class="content-cards">
+    <div class="content-cards-card">
+      <div class="request-card" [ngStyle]="getCardImage(requestCard, true)">
+        <div class="number">
+          {{requestCard.cardNumber}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <br><br><br><br>
+  <div class="content-text">
+    Los Cromos Repetidos de Juan y su propuesta
+  </div>
+  <div class="content-cards">
+    <div class="content-cards-card" [ngClass]="{'selected' : selectedExchangeCardIdx === i}" *ngFor="let card of dispCards; let i = index">
+      <div class="request-card" [ngStyle]="getCardImage(card, true)">
+        <div class="number">
+          {{card.cardNumber}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="content-button">
+    <br><br><br><br>
+    <button class="btn btn-round btn-green" (click)='acceptExchange()'>ACEPTO EL INTERCAMBIO</button>
+  </div>
+</div>

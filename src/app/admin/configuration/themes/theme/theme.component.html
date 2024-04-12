@@ -1,0 +1,20 @@
+<div class="form">
+    <div class="form-panel one">
+      <div class="form-header">
+        <h1>Add theme</h1>
+      </div>
+      <div class="form-content">
+        <form #addThemeForm="ngForm" (ngSubmit)="addTheme($event); addThemeForm.form.reset()">
+          <div class="form-group">
+            <label for="theme">Theme</label>
+            <input type="text" id="theme" name="theme" [(ngModel)]="theme.theme" required />
+          </div>
+          <div class="
+                form-group">
+            <button [disabled]="addThemeForm.form.invalid">Add theme</button>
+          </div>
+        </form>
+      </div>
+      <app-theme-list></app-theme-list>
+    </div>
+  </div>

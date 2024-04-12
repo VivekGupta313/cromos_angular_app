@@ -1,0 +1,18 @@
+<div class="trivia-one-container">
+    <div class="header">
+        <img class="header-image-one" src="../../../assets/img/kid-girl.png">
+        <img class="header-image-two" src="../../../assets/img/stars.png">
+        <div class="header-text">CARD PROPOSALS
+        </div>
+    </div>
+    <div class="content">
+        <div class="content-text" *ngIf="requestor">
+          {{requestor.displayName}} has sent you car exchange proposal. <br>
+          They have requested card number [{{proposal.cardNo}}] from you.
+        </div>
+    </div>
+    <div class="footer" *ngIf="requestor">
+    	<button class='btn btn-round btn-green' (click)="openExchange()"><b>ACCEPT</b></button>
+        <button class='btn btn-round btn-red' (click)="closeModal(false)"><b>DENY</b></button>
+    </div>
+</div>

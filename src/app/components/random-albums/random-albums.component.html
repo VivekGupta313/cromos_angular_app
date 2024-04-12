@@ -1,0 +1,65 @@
+<div class="block block-random-albums">
+  <div class="block-inner">
+    <div class="block-title">ALBUMS</div>
+    <div class="albums-list">
+      <div class="list-inner">
+        <!-- <div *ngFor="let album of albums">
+          <app-album-preview [album]="album"></app-album-preview>
+        </div> -->
+        <div class="album-item" *ngFor="let album of albums" (click)="goToAlbum(album)">
+          <div class="item-img " [ngStyle]="{'background': album.color}" >
+            <!-- <img src="../../../assets/img/missing_image.png" *ngIf="!loaded"> -->
+            <img [src]="album?.albumImageUrl" alt="">
+            <div class="item-label" ><span class="item-label-inner">{{album?.collection.substring(0 , 1 )}}</span></div>
+          </div>
+          <div class="item-content">
+            <div class="item-title">{{album?.collection}}</div>
+            <div class="item-category "[ngStyle]="{'color': album.color}" > {{album?.name}}</div> 
+            <div class="item-info">
+              <span>CAT</span>
+              <span>CAS</span>
+              <span>ING</span>
+            </div>
+          </div>
+          <a class="item-link"></a>
+        </div>
+        <!-- <div class="album-item" *ngFor="let album of [1,2,3]" [routerLink]="'/album/1'">
+          <div class="item-img item-img-violet">
+            <img src="https://source.unsplash.com/random/310x420" alt="">
+            <div class="item-label"><span class="item-label-inner">a</span></div>
+          </div>
+          <div class="item-content">
+            <div class="item-title">Paisajes del Mar</div>
+            <div class="item-category item-category-violet">> ARTE</div>
+            <div class="item-info">
+              <span>CAT</span>
+              <span>CAS</span>
+              <span>ING</span>
+            </div>
+          </div>
+          <a class="item-link"></a>
+        </div>
+        <div class="album-item" *ngFor="let album of [1,2]" [routerLink]="'/album/1'">
+          <div class="item-img item-img-green">
+            <img src="https://source.unsplash.com/random/310x420" alt="">
+            <div class="item-label"><span class="item-label-inner">a</span></div>
+          </div>
+          <div class="item-content">
+            <div class="item-title">Paisajes del Mar</div>
+            <div class="item-category item-category-green">> ARTE</div>
+            <div class="item-info">
+              <span>CAT</span>
+              <span>CAS</span>
+              <span>ING</span>
+            </div>
+          </div>
+          <a class="item-link"></a>
+        </div> -->
+      </div>
+      <div class="albums-action">
+        <a class="btn btn-orange btn-round" (click)="openModal()">Empieza tu primer album</a>
+        <a class="btn btn-lemon btn-round" (click)="openModal()">Reta y disfruta con tus amigos</a>
+      </div>
+    </div>
+  </div>
+</div>

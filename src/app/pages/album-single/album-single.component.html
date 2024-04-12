@@ -1,0 +1,63 @@
+<div class="block block-collections-header">
+  <div class="block-decorations"></div>
+  <div class="block-inner">
+    <!-- <div class="block-title">
+      COLECCIÓN <span class="collection color-lemon">BIOLOGÍA</span> > ALBUM <strong>CAMPO</strong>
+    </div> -->
+    <div class="block-title">
+      COLECCIÓN <span class="collection color-lemon">{{albumSingle?.collection}}</span> > ALBUM <strong>{{albumSingle?.name}}</strong>
+    </div>
+  </div>
+</div>
+<div class="block block-single-album">
+  <div class="block-inner">
+    <div class="album-navi">
+      <div class="navi-links">
+        <ul>
+          
+          <li *ngIf="!userIsRegistered && !allowNoGroup"><a class="btn btn-round btn-green" (click)="openGroupModal()">Empezar álbum</a></li>
+          <li><a class="btn btn-round btn-blue" (click)="goToAlbumOverview(albumSingle.albumUid)">Ver Resumen Cromos</a></li> 
+          <!--<li><a class="btn btn-round btn-orange" (click)="openSubscriptionModal()">Apuntarse a Suscripción</a></li>-->
+          <li><a class="btn btn-round btn-red" *ngIf="userIsRegistered" (click)="goToExchange()">Intercambio de Cromos</a></li>
+          <li><a class="btn btn-round btn-l_blue" *ngIf="userIsRegistered" (click)="goToRanking()">RANKING</a></li>
+          <li *ngIf="userIsRegistered"><a class="btn btn-round btn-green" (click)="openMyGroupsModal()">Unregister to Group</a></li>
+
+        </ul>
+      </div>
+    </div>
+    <div class="album-description">
+      <div class="album-greeting">BIENVENIDO A TU ALBUM</div>
+      <div class="album-title">{{albumSingle?.name}}</div>
+      <div class="album-collection color-lemon">> {{albumSingle?.collection}}</div>
+      <!-- <div class="album-stats">Restan 89 días para completarlo.</div>
+      <div class="album-stats">Te faltan 96/96 CROMOS</div> -->
+      <div class="album-stats">
+        </div> <div class="album-help">
+          <div class="album-help-line">
+            <p>Para obtener nuevos cromos, puedes:</p>
+          </div>
+          <div class="album-help-line"><span class="icon icon-cursor"></span>
+            <p><span class="underlined">Responder las Trivias</span> bajo cada espacio de CROMOS en el album</p>
+          </div>
+          <p>o</p>
+          <div class="album-help-line"><span class="icon icon-cursor"></span>
+            <p><span class="underlined">Canjear los repetidos</span>, haciendo click en cada uno, en la pila de TUS
+              REPETIDOS.</p>
+          </div>
+      </div>
+      <div class="album-start" (click)="openTemario()"><a class="btn btn-round btn-red">TEMARIO</a></div>
+    </div>
+    <div class="album-preview">
+      <div class="preview-content">
+        <div class="preview-bg bg-lemon"></div>
+        <div class="preview-img"><img [src]="albumSingle.albumImageUrl" alt=""></div>
+        <div class="preview-label">
+          <div class="label"></div>
+        </div>
+      </div>
+      <div class="preview-cover">
+        <img (click)="openAlbum(albumSingle)" src="assets/img/album-preview-cover.svg" alt="">
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+<div class="site-wrapper" [ngClass]="{'modal-open': modalIsOpen}">
+  <app-site-header></app-site-header>
+  <div class="site-middle">
+    <router-outlet></router-outlet>
+  </div>
+  <app-toast-message></app-toast-message>
+  <app-site-footer></app-site-footer>
+</div>
+<app-modal *ngIf="modalIsOpen" [modal]="modalContent" [data]="modalData"></app-modal>

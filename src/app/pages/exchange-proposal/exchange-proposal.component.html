@@ -1,0 +1,44 @@
+<div class="block-cardexchange-header">
+  <div class="block-cardexchange-decorations"></div>
+  <div class="block-inner">
+    <div class="block-title">
+      FELICITACIONES! TE HAN PROPUESTO UN CANJE<br>
+      PARA LA COLECCIÓN <span class="collection color-lemon">BIOLOGÍA</span> > ALBUM <strong>CAMPO</strong>
+    </div>
+    <!-- <div class="block-title">
+      COLECCIÓN <span class="collection color-lemon">{{albumSingle?.collection}}</span> > ALBUM <strong>{{albumSingle?.name}}</strong>
+    </div> -->
+  </div>
+</div>
+<div class="content-cardexchange">
+  <div class="content-text">
+    JUAN GARCÍA te propone este intercambio:
+  </div>
+  <div class="content-text-small">
+    Los Cromos Repetidos de Juan y su propuesta
+  </div>
+  <div class="content-cards">
+    <div class="content-cards-card" *ngFor="let card of cards">
+      <app-card [cardUrl]='card.url' [cardNumber]='card.nrOfCards'></app-card>
+      <input type="checkbox" class="checkbox">
+    </div>
+  </div>
+  <div class="content-text-small">
+    Los Cromos Repetidos de Juan y su propuesta
+  </div>
+  <div class="content-cards">
+    <div class="content-cards-card" *ngFor="let card of cards2">
+      <app-card [cardUrl]='card.url' [cardNumber]='card.nrOfCards'></app-card>
+      <input type="checkbox" class="checkbox">
+    </div>
+  </div>
+
+  <div class="content-buttons">
+    <button class="btn btn-round btn-red">PROPONDRÉ
+      CAMBIOS</button>
+    <button class="btn btn-round btn-green">ACEPTO EL
+      INTERCAMBIO</button>
+  </div>
+
+
+</div>

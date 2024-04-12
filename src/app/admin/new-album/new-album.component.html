@@ -1,0 +1,56 @@
+<div class="form">
+  <div class="form-panel one">
+    <div class="form-header">
+      <h1>Add Album</h1>
+    </div>
+    <div class="form-content">
+      <form #addAlbumForm="ngForm" (submit)="addAlbum(); imgUpload.value=''">
+        <div class="form-group">
+          <label for="collection">Collection</label>
+          <select name="collection" id="collection" required [(ngModel)]="album.collection">
+            <option *ngFor="let coll of collections$|async" value={{coll.collection}}>
+              {{coll.collection}}
+            </option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" [(ngModel)]="album.name" required />
+        </div>
+        <div class="form-group">
+          <label for="language">Language</label>
+          <select name="language" id="language" required [(ngModel)]="album.language" required>
+            <option *ngFor="let lang of languages$|async" value={{lang.language}}>
+              {{lang.language}}
+            </option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="level">Level</label>
+          <select name="level" id="level" required [(ngModel)]="album.level" required>
+            <option *ngFor="let level of levels$|async" value={{level.level}}>
+              {{level.level}}
+            </option>
+          </select>
+        </div>
+        <div class="form-group">
+          <div appClick id="dropzone" appDropZone (hovered)='toggleHover($event)' (dropped)="getFile($event)" (click)='imgUpload.click()'
+            [ngClass]="{'hasImage':imageIsDropped}" #dropzone>
+            <div class="dashes">
+              <div class="dropzone-label">
+                <h3>Click to browse or drag an image here</h3>
+              </div>
+              <input class="file-input" type="file" (change)="getFile($event.target.files)" accept="image/*" style="display:none" #imgUpload required />
+            </div>
+          </div>
+        </div>
+        <app-checkbox (valueChanged)="valueChanged($event)"></app-checkbox>
+        <div class="
+            form-group">
+          <button [disabled]="addAlbumForm.form.invalid || isSaving">Add Album</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <app-albums-list></app-albums-list>
+</div>

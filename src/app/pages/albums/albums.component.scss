@@ -1,0 +1,171 @@
+@import "~src/assets/scss/vars";
+@import "~src/assets/scss/mixins";
+
+.album-name {
+  font-size: 14px;
+  font-weight: bold;
+  position: absolute;
+  top: 58px;
+  width: 66px;
+  margin-left: 27px;
+}
+
+.block-albums-header {
+  background-color: #333333;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  height: 20rem;
+  @extend .corner;
+
+  .block-inner {
+    @extend .container;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    color: #fff;
+  }
+
+  .block-title {
+    text-transform: uppercase;
+    font-size: 4rem;
+    font-weight: bold;
+    line-height: 1em;
+    font-family: $font-exo;
+    margin-bottom: 2rem;
+  }
+
+  .block-content {
+    font-size: 2rem;
+    font-family: $font-quattrocento;
+  }
+}
+
+.block-albums-shelf {
+  position: relative;
+  margin-bottom: 4rem;
+
+  .shelf-info {
+    color: #000;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-100%);
+    margin-top: -50px;
+    margin-left: calc(-800px / 2);
+
+    .shelf-info-title {
+      font-family: $font-axis;
+      font-size: 6rem;
+      margin-bottom: 2rem;
+    }
+
+    .shelf-info-content {
+      font-family: $font-quattrocento;
+      color: #4D4D4D;
+      font-size: 3rem;
+    }
+  }
+
+  .shelf-img {
+    margin: 0 auto 2rem;
+    width: 800px;
+    height: 631px;
+    position: relative;
+
+    img {
+      margin-left: 40px;
+    }
+
+    .shelf-albums {
+      position: absolute;
+      top: 166px;
+      left: 178px;
+      display: flex;
+      justify-content: space-between;
+      height: 235px;
+      width: 420px;
+
+      .album-item {
+        flex: 0 0 113px;
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+        position: relative;
+
+        &.album-item-orange {
+          .album-item-stat {
+            background-color: #FBB03B;
+            border: 1px solid #fff;
+          }
+        }
+
+        &.album-item-blue {
+          .album-item-stat {
+            background-color: #52C7FF;
+          }
+        }
+
+        &.album-item-green {
+          .album-item-stat {
+            background-color: #22B573;
+          }
+        }
+
+        .album-item-stat {
+          width: 100%;
+          padding: 10px;
+
+          .stat-line {
+            display: flex;
+            align-items: center;
+            line-height: 1em;
+
+            +.stat-line {
+              margin-top: 10px;
+            }
+
+            .stat-title {
+              font-size: 1.1rem;
+              text-transform: uppercase;
+              flex: 1;
+              font-family: $font-exo;
+              line-height: 1.3em;
+            }
+
+            .stat-count {
+              font-size: 2.9rem;
+              font-family: $font-exo;
+              margin-top: 2px;
+            }
+          }
+        }
+
+        .album-item-link {
+          @extend .overlay;
+        }
+
+        .album-item-icon {
+          position: absolute;
+          top: 0;
+          right: -1.5rem;
+        }
+      }
+    }
+  }
+
+  .albums-shelf-navi {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    a {
+      +a {
+        margin-left: 5rem;
+      }
+    }
+  }
+}

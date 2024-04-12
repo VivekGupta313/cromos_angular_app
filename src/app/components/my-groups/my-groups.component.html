@@ -1,0 +1,24 @@
+<div class="create-group">
+  <div class="create-step">
+    <div class="block-title">¡EXCELENTE! <br>VAS A PUNTARTE A UN GRUPO</div>
+    <div class="block-subtitle">Busca o selecciona el grupo al que deseas apuntarte,
+      dentro del listado.</div>
+    <div class="block-content">
+      <div class='block-search'>
+        <input type="text" placeholder="Busca por nombre de grupo">
+        <div class="icon icon-search"></div>
+      </div>
+      <div class="block-list">
+        <ul *ngIf='groups$|async as groups'>
+          <li *ngFor="let group of groups; let i = index">
+            <app-item [group]='group' [selected]='selected[i]' [private]="group.type === 'private'" [joined]='joined' [albumId]='albumId' (click)='selectedGroup(group,i)'></app-item>
+          </li>
+        </ul>
+      </div>
+
+      <div class=" form-line submit-line">
+        <button class="btn btn-round btn-green btn-lgn" (click)="confirm()">CONFIRMAR</button>
+      </div>
+    </div>
+    <div class="block-footer">¿Deseas saber más sobre Grupos? <a [routerLink]="'/help'">AYUDA</a></div>
+  </div>

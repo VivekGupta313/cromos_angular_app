@@ -1,0 +1,126 @@
+<div class="block block-collections-header">
+  <div class="block-decorations"></div>
+  <div class="block-inner">
+    <!-- <div class="block-title">
+      COLECCIÓN <span class="collection color-lemon">BIOLOGÍA</span> > ALBUM <strong>CAMPO</strong>
+    </div> -->
+    <div class="block-title">
+      COLECCIÓN <span class="collection color-lemon">{{albumSingle?.collection}}</span> > ALBUM <strong>{{albumSingle?.name}}</strong>
+    </div>
+  </div>
+</div>
+<div class="block block-single-album">
+  <div class="block-inner">
+    <div class="block-left">
+      <div class="block-left-cromos">
+        <div class="cromos">
+          <div class="cromos-title">TUS CROMOS</div>
+          <div class="cards-container">
+            <div class="cromos-cards" *ngFor="let c of myCards;let i = index">
+              <div  class="single-card" dndEffectAllowed="move" (dndStart)="onDragStart($event)" [dndDraggable]="c" appPileOfCards [translator]="i">
+                <img src="{{c.imageUrl}}">
+                <div class="card-number">{{c.cardNumber}}</div>
+              </div>
+            </div>
+          </div>
+          <div class="cromos-total" *ngIf="myCards.length">
+            {{myCards.length}}/{{myCards.length}}
+          </div>
+        </div>
+      </div>
+      <div class="block-left-repetidos">
+        <div class="cromos">
+          <!-- <div class='cromos-cards' *ngFor="let card of cards">
+            <img src="{{card.url}}">
+            <div class="card-number">{{card.nrOfCard}}</div>
+          </div> -->
+        </div>
+      </div>
+      <div class="album-navi">
+
+        <div class="navi-links" style="width: 300px">
+          <ul>
+            <li><a class="btn btn-round btn-blue" (click)="goToAlbumOverview()">Ver Resumen Cromos</a></li>
+            <!--<li><a class="btn btn-round btn-orange" (click)="openSubscriptionModal()">Apuntarse a Suscripción</a></li>-->
+            <!-- <li><a class="btn btn-round btn-red" (click)="goToExchange()">Intercambio de Cromos</a></li> -->
+            <!-- <li><a class="btn btn-round btn-l_blue" (click)="goToRanking()">RANKING</a></li> -->
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- <app-interactive-album [inCollection]=false></app-interactive-album> -->
+    
+  <div class="interactive-albums-block block">
+      <!-- <div class="block-stitle">EXPLORA NUESTROS CROMOS</div> -->
+      <div class="block-albums">
+        <div class="block-inner">
+          <div class="albums-list">
+            <div class="albums-list-inner">
+              <div class="albums-col">
+                <div class="album-item" *ngFor="let card of displayCards | slice:0:4;let i = index">
+                  <div class="album-inner" dndDropzone (dndDrop)="onDrop($event, number)">
+                    <div class="album-img" *ngIf="!card.isOpened">
+                      <div class="number">{{card.cardNumber}}</div>
+                      <img [src]="card.imageUrl" *ngIf="card.imageUrl && myPlacedCardsId.indexOf(card.cardNumber)  != -1">
+                      <div class="album-icon" *ngIf="card.imageUrl && myPlacedCardsId.indexOf(card.cardNumber)  != -1" (click)="openDescription(card)"><span class="icon icon-info"></span></div>
+                      <!-- <img appImgPreloader="{{album?.url}}" [class.hideImg]="selectedIndex === i+8" alt=""> -->
+                      <!-- <div class="album-icon" (click)="setIndex1(i)"><span class="icon icon-info"></span></div> -->
+                      <div class='album-description' *ngIf="myPlacedCardsId.indexOf(card.cardNumber)  != -1" [class.showDesc]="selectedIndex === i+8">{{number?.description}}
+                      </div>
+                    </div>
+                    <div class="description-container" *ngIf="card.isOpened">
+                      <p class="title">{{card.title}}</p>
+                      <div class="close-container" (click)="openDescription(card)">
+                        <span>&times;</span>
+                      </div>
+    
+                      <p class="description-item">{{card.description}}</p>
+                    </div>
+                    <div class="album-title">{{number?.imgName}}</div>
+                    <div class="album-content">{{number?.title}}</div>
+                    <a class="album-link"></a>
+                  </div>
+                  <div class="album-title">  {{card.title}}</div>
+                </div>
+              </div>
+              <div class="albums-col">
+                <div class="album-item" *ngFor="let card of displayCards | slice:4:8;let i = index">
+                  <div class="album-inner" dndDropzone (dndDrop)="onDrop($event, number)">
+                    <div class="album-img" *ngIf="!card.isOpened">
+                      <div class="number">{{card.cardNumber}}</div>
+                      <!-- <img appImgPreloader="{{album?.url}}" [class.hideImg]="selectedIndex === i+8" alt="" mwlDroppable
+                      (drop)="this.droppedData = $event.dropData"> -->
+                      <!-- <div class="album-icon" (click)="setIndex1(i)"><span class="icon icon-info"></span></div> -->
+                      <img [src]="card.imageUrl" *ngIf="card.imageUrl && myPlacedCardsId.indexOf(card.cardNumber) != -1">
+                      <div class="album-icon" *ngIf="card.imageUrl && myPlacedCardsId.indexOf(card.cardNumber)  != -1" (click)="openDescription(card)"><span class="icon icon-info"></span></div>
+                      <div class='album-description' *ngIf="myPlacedCardsId.indexOf(card.cardNumber)  != -1" [class.showDesc]="selectedIndex === i+8">{{number?.description}}
+                      </div>
+                    </div>
+                    <div class="description-container" *ngIf="card.isOpened">
+                      <p class="title">{{card.title}}</p>
+                      <div class="close-container" (click)="openDescription(card)">
+                        <span>&times;</span>
+                      </div>
+    
+                      <p class="description-item">{{card.description}}</p>
+                    </div>
+                    <div class="album-title">{{number?.imgName}}</div>
+                    <div class="album-content">{{number?.title}}</div>
+                    <a class="album-link"></a>
+                  </div>
+                  <div class="album-title">{{card.title}}</div>
+                </div>
+              </div>
+              <div class="book-style"></div>
+              <div class="albums-pages">{{minimum}} - {{maximum}}</div>
+              <div class="albums-list-navi">
+                <a class="navi-left" (click)="previous()"><span class="icon icon-arrow_l"></span></a>
+                <a class="navi-right" (click)="next()"><span class="icon icon-arrow_r"></span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

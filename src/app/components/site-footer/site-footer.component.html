@@ -1,0 +1,14 @@
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-copyright">&copy; cromos album 2018-2022. All rights reserved.</div>
+    <div class="footer-socials">
+      <ul>
+        <li *ngFor="let socLink of socLinks">
+          <a href="{{socLink.link}}" title="{{socLink.title}}" target="_blank">
+            <span class="icon"><img src="{{socLink.icon}}" alt="{{socLink.title}}"></span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>

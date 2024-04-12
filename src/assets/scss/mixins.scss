@@ -1,0 +1,109 @@
+@mixin optional-at-root($sel) {
+  @at-root #{if(not &, $sel, selector-append(&, $sel))} {
+    @content;
+  }
+}
+
+@mixin placeholder {
+  @include optional-at-root('::-webkit-input-placeholder') {
+    @content;
+  }
+
+  @include optional-at-root(':-moz-placeholder') {
+    @content;
+  }
+
+  @include optional-at-root('::-moz-placeholder') {
+    @content;
+  }
+
+  @include optional-at-root(':-ms-input-placeholder') {
+    @content;
+  }
+}
+
+.container {
+  max-width: 1170px;
+  min-width: 1000px;
+  width: 100%;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.panel-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.inherited {
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0;
+  color: inherit;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.corner {
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    width: 4rem;
+    height: 4rem;
+    transform: rotate(45deg) translateX(-50%);
+    background-color: #fff;
+    bottom: -4.9rem;
+    left: 50%;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    width: 4rem;
+    height: 4rem;
+    transform: rotate(45deg) translateX(-50%);
+    background-color: inherit;
+    bottom: -2.9rem;
+    left: 50%;
+  }
+}
+
+.corner-top {
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    width: 4rem;
+    height: 4rem;
+    transform: rotate(45deg) translateX(-50%);
+    background-color: black;
+    top: -2rem;
+    left: 50%;
+    z-index: -1;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    width: 4rem;
+    height: 4rem;
+    transform: rotate(45deg) translateX(-50%);
+    background-color: inherit;
+    top: 0;
+    left: 50%;
+    z-index: -1;
+  }
+}

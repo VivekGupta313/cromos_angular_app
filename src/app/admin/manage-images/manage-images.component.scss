@@ -1,0 +1,52 @@
+.container {
+    margin: 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.albums {
+    width: 50%;
+}
+
+.images {
+    width: 50%;
+}
+
+.album-controls {
+    position: absolute;
+    margin: -1px 2px;
+
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+}
+
+.select-style {
+    border: 1px solid #ccc;
+    width: 120px;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.select-style select {
+    padding: 5px 8px;
+    width: 130%;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+}
+
+.select-style select:focus {
+    outline: none;
+}
+
+.label {
+    font-size: 3rem;
+    margin-right: 5rem;
+}

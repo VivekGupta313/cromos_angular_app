@@ -1,0 +1,53 @@
+<div class="create-group">
+  <div class="create-step">
+    <div class="block-title">¡EXCELENTE! <br>VAS A CREAR UN NUEVO GRUPO</div>
+    <div class="block-content">
+      <form #createGroup="ngForm" (submit)="formNextStep()">
+        <div class="form-line">
+          <div class="form-field">
+            <input type="text" name='name' placeholder="Nombre:" [(ngModel)]="groupSettings.name" required>
+          </div>
+        </div>
+        <div class="form-line">
+          <label class="form-label">Admisión:</label>
+          <div class="form-field">
+            <div class="radio-group">
+              <div class="form-field-radio">
+                <input type="radio" id="private" name="group_type" value="private" [(ngModel)]="groupSettings.type" (click)="generateAccessCode(1)" required>
+                <label for="private">Privada</label>
+              </div>
+              <div class="form-field-radio">
+                <input type="radio" id="public" name="group_type" value="public" [(ngModel)]="groupSettings.type" (click)="generateAccessCode(0)" required>
+                <label for="public">Pública</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-line">
+          <div class="group-info">
+            <div class="group-data">
+              <div class="group-name" *ngIf="groupSettings.type == 'private'">COD ACCESO: {{accessToken}}</div>
+              <div class="group-actions">
+                <div class="group-type">ASOCIAR ALBUM</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-line">
+          <div class="users-list" *ngIf="albums$|async as albums">
+            <div class="user-item" *ngFor="let album of albums; let i = index" [ngClass]="{'selected': selectedIndex === i}" (click)="selectAlbum(album, i)">
+              <div class="user-email">{{album.name}}</div>
+            </div>
+          </div>
+        </div>
+        <div class="form-line submit-line">
+          <div class="form-field-help">Ten en cuenta que destinarás 100 puntos al crearlo</div>
+        </div>
+        <div class="form-line submit-line">
+          <button class="btn btn-round btn-gray" (click)="closeModal()">BORRAR GRUPO</button>
+          <button class="btn btn-round btn-green" [disabled]="createGroup.form.invalid">CREAR</button>
+        </div>
+      </form>
+    <div class="block-footer">¿Deseas saber más sobre Grupos? <a [routerLink]="'/help'">AYUDA</a></div>
+  </div>
+</div>

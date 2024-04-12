@@ -1,0 +1,292 @@
+@import "~src/assets/scss/vars";
+@import "~src/assets/scss/mixins";
+
+.create-group {
+  padding: 4rem;
+  width: 82rem;
+
+  .block-title {
+    text-align: center;
+    text-transform: uppercase;
+    color: #4d4d4d;
+    font-size: 2.4rem;
+    font-weight: bold;
+    font-family: $font-axis;
+    margin-bottom: 3rem;
+  }
+
+  .block-content {
+    .form-line {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+
+      +.form-line {
+        margin-top: 2rem;
+
+        &.submit-line {
+          margin-top: 3rem;
+          text-align: center;
+          justify-content: center;
+
+          .form-field-help {
+            margin-top: 1rem;
+            margin-left: 2rem;
+          }
+
+          .btn {
+            display: flex;
+            align-items: center;
+            line-height: 1em;
+
+            +.btn {
+              margin-left: 3rem;
+            }
+          }
+        }
+      }
+
+      .form-label {
+        flex: 0 0 10rem;
+        color: #666666;
+        font-family: $font-quattrocento;
+        font-size: 2rem;
+        font-weight: bold;
+        margin-left: 2rem;
+        margin-right: 4rem;
+      }
+
+      .form-field {
+        flex: 1;
+
+        [type="text"],
+        [type="date"],
+        textarea {
+          width: 100%;
+          background-color: #f2f2f2;
+          border-radius: .5rem;
+          border: 0;
+          padding: 2rem;
+          font-size: 2rem;
+        }
+
+        textarea {
+          height: 20rem;
+          resize: none;
+        }
+
+        .radio-group {
+          display: flex;
+          flex-wrap: wrap;
+
+          .form-field-radio {
+            +.form-field-radio {
+              margin-left: 5rem;
+            }
+
+            label {
+              color: #666666;
+              font-size: 2rem;
+              font-family: $font-quattrocento;
+            }
+
+            input {
+              position: absolute;
+              left: -999em;
+
+              &:checked {
+                +label {
+                  color: $color-green;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .form-field-help {
+        flex: 0 0 100%;
+        font-size: 1.8rem;
+        font-style: italic;
+        font-family: $font-quattrocento;
+        color: #666666;
+        margin-top: 1rem;
+        margin-left: 2rem;
+      }
+    }
+
+    .group-label {
+      width: 6rem;
+      height: 6rem;
+      border-radius: .5rem;
+      background-color: #f2f2f2;
+      border: .2rem solid #999999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .add-users {
+      flex: 0 0 100%;
+      position: relative;
+
+      [type="email"] {
+        height: 5rem;
+        padding: 2rem;
+        width: 100%;
+        background-color: #f2f2f2;
+        border-radius: .5rem;
+        font-size: 2rem;
+        border: 0;
+      }
+
+      .form-btn {
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 5rem;
+        padding: .5rem;
+
+        a {
+          width: 100%;
+          height: 100%;
+          background-color: $color-green;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+    }
+
+    .users-list {
+      background-color: #f2f2f2;
+      border-radius: .5rem;
+      height: 20rem;
+      flex: 0 0 100%;
+      padding: 1rem;
+      overflow-y: auto;
+
+      .selected {
+        background-color: $color-green;
+        font-weight : bold;
+        color: #fff;
+      }
+
+      .user-item {
+        font-size: 2rem;
+        border-radius: .5rem;
+        font-family: $font-quattrocento;
+        color: #666666;
+        padding: 1.5rem 1rem;
+        display: flex;
+        align-items: center;
+
+        +.user-item {
+          border-top: 1px dashed #878787;
+        }
+
+        .user-email {
+          flex: 1;
+          font-weight: bold;
+        }
+
+        .user-status {
+          display: flex;
+
+          a {
+            display: block;
+            width: 2.5rem;
+            height: 2.5rem;
+          }
+
+          .icon {
+            margin-right: .5rem;
+          }
+        }
+      }
+    }
+
+    .group-info {
+      width: 100%;
+      display: flex;
+      padding-left: 2rem;
+
+      .group-data {
+        flex: 1;
+        font-size: 1.6rem;
+        color: #666666;
+
+        .group-name {
+          text-transform: uppercase;
+          font-size: 2rem;
+          font-weight: bold;
+        }
+
+        .group-actions {
+          margin-top: 2rem;
+          width: 22rem;
+          font-size: 1.6rem;
+          font-weight: bold;
+          font-family: $font-axis;
+
+          .group-type {
+            color: #fff;
+            background-color: $color-green;
+            padding: 0.4rem 3rem 0;
+            height: 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: .5rem;
+            line-height: 1em;
+          }
+
+          .remove-group {
+            margin-top: 1rem;
+            color: #fff;
+            background-color: $color-red;
+            padding: 0.42rem 3rem 0;
+            height: 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: .5rem;
+            text-decoration: none;
+          }
+        }
+      }
+
+      .group-label {
+        width: 15rem;
+        height: 15rem;
+
+        img {
+          max-height: 100%;
+          width: auto;
+        }
+      }
+    }
+  }
+
+  .block-footer {
+    text-align: center;
+    color: #666666;
+    margin-top: 2rem;
+    padding: 2rem 0 0;
+    font-family: $font-quattrocento;
+    font-size: 2rem;
+    border-top: .2rem solid #b3b3b3;
+    font-weight: bold;
+
+    a {
+      color: $color-green;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

@@ -1,0 +1,84 @@
+<div class="block block-collections-header">
+  <div class="block-decorations"></div>
+  <div class="block-inner">
+    <div class="block-title">COLECCIONES DISPONIBLES</div>
+  </div>
+</div>
+<div class="block-collections-preview">
+  <div class="block-inner">
+    <div class="collections-navi">
+        <div class="album-item">
+        <div class="item-content">
+            <div class="item-title"></div>
+            <div class="item-category"></div>
+            <div class="item-info">
+              <span>CAT</span>
+              <span>CAS</span>
+              <span>ING</span> 
+            </div>
+
+          </div>
+          <a class="item-link"></a>
+        </div>
+      <div class="navi-title">LISTA DE COLECCIONES</div>
+      <div class="navi-list">
+        <ul>
+          <li (click)="getAllAlbums()">
+            <a class="all-background">All</a>
+          </li>
+          <li *ngFor="let collection of collections" (click)="selectCollection(collection)">
+            <a [ngStyle]="{'background': collection.color}">{{collection.collection}}</a>
+          </li>
+          <!-- <li><a class="color-blue">deporte</a></li>
+          <li><a class="color-violet">arte</a></li>
+          <li><a class="color-green">matemática</a></li>
+          <li><a class="color-lemon">biología </a></li>
+          <li><a class="color-orange">química</a></li>
+          <li><a class="color-red">historia</a></li>
+          <li><a class="color-pink">idiomas</a></li>
+          <li><a class="color-d_red">GEOGRAFÍA</a></li> -->
+        </ul>
+      </div>
+    </div>
+    <div class="collections-preview">
+      <div class="preview-lg">
+        <div class="preview-inner">
+          <div class="preview-img">
+            <div *ngIf='!randomImage else image'>
+              <app-loader></app-loader>
+            </div>
+            <!-- <img src="https://source.unsplash.com/random/1000x500" alt=""> -->
+            <ng-template #image>
+              <img [src]="albums[0].albumImageUrl" alt="" (click)="openAlbum(albums[0])" *ngIf="albums.length > 0">
+            </ng-template>
+
+          </div>
+          <div class="preview-label"><span class="label">b</span></div>
+        </div>
+        <div class="preview-type">NUEVO ALBUM</div>
+        <div class="preview-title" *ngIf="albums.length > 0">{{albums[0].name}}</div>
+      </div>
+      <div class="preview-navi">
+        <ul>
+          <li></li>
+          <li class="active"></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="block-collections-albums">
+  <div class="block-inner">
+    <div class="albums-list" *ngIf="albums.length > 1">
+      <!-- <app-album-preview *ngFor="let album of [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]"></app-album-preview> -->
+      <app-album-preview *ngFor="let album of albums | slice:1" [album]='album'></app-album-preview>
+
+    </div>
+    <div class="albums-more">
+      <a class="btn btn-round btn-gray"><span class="icon icon-plus"></span></a>
+    </div>
+  </div>
+</div>

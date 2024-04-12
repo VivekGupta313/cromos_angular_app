@@ -1,0 +1,315 @@
+@import "~src/assets/scss/vars";
+
+.icon {
+  display: inline-block;
+  vertical-align: middle;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+
+  &.icon-info {
+    width: 2.5rem;
+    height: 2.5rem;
+    background-image: url(assets/img/icon-info.svg);
+  }
+
+  &.icon-lock {
+    width: 2.5rem;
+    height: 2.5rem;
+    background-image: url(assets/img/icon-lock.svg);
+  }
+
+  &.icon-arrow_l {
+    width: 4rem;
+    height: 7rem;
+    background-image: url(assets/img/icon-arrow_l.svg);
+  }
+
+  &.icon-arrow_r {
+    width: 4rem;
+    height: 7rem;
+    background-image: url(assets/img/icon-arrow_l.svg);
+    transform: rotate(180deg);
+  }
+
+  &.icon-modal-close {
+    width: 3.4rem;
+    height: 3.8rem;
+    background-image: url(assets/img/icon-modal-close.svg);
+  }
+
+  &.icon-close {
+    width: 4rem;
+    height: 5.5rem;
+    background-image: url(assets/img/icon-close.svg);
+  }
+
+  &.icon-user {
+    width: 4rem;
+    height: 5.5rem;
+    background-image: url(assets/img/icon-user.svg);
+  }
+
+  &.icon-arrow-back {
+    width: 4rem;
+    height: 5.5rem;
+    background-image: url(assets/img/icon-arrow-back.svg);
+  }
+
+  &.icon-info-alert {
+    width: 4.2rem;
+    height: 4.2rem;
+    background-image: url(assets/img/icon-info-alert.svg);
+  }
+
+  &.icon-plus {
+    width: 2.5rem;
+    height: 2.5rem;
+    background-image: url(assets/img/icon-plus.svg);
+  }
+
+  &.icon-cursor {
+    width: 2.2rem;
+    height: 2.2rem;
+    background-image: url(assets/img/icon-cursor.svg);
+  }
+
+  &.icon-approved {
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: $color-green;
+    background-image: url(assets/img/icon-check_w.svg);
+    background-size: 1.4rem 1.4rem;
+  }
+
+  &.icon-mail_sent {
+    width: 3.5rem;
+    height: 2.5rem;
+    background-image: url(assets/img/icon-mail.svg);
+  }
+
+  &.icon-question {
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: #b3b3b3;
+    background-image: url(assets/img/icon-question_w.svg);
+    background-size: 1.4rem 1.4rem;
+  }
+
+  &.icon-delete {
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: $color-red;
+    background-image: url(assets/img/icon-cross_w.svg);
+    background-size: 1.4rem 1.4rem;
+  }
+
+  &.icon-search {
+    width: 6rem;
+    height: 6rem;
+    background-image: url(assets/img/icon-search.svg);
+  }
+
+
+}
+
+
+.book-style {
+  position: absolute;
+  z-index: 3;
+  top: -3rem;
+  bottom: 0;
+  width: 15rem;
+  background-image: url(assets/img/book_top.svg);
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  left: 50%;
+  transform: translateX(-50%);
+
+  &:before {
+    content: '';
+    position: absolute;
+    z-index: 3;
+    bottom: -3rem;
+    top: 0;
+    left: 50%;
+    background-image: url(assets/img/book_bottom.svg);
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: 0 bottom;
+    width: 15rem;
+    transform: translateX(-50%);
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    width: 1.5rem;
+    background-color: #4D4D4D;
+    bottom: 0;
+    top: 20rem;
+    left: 50%;
+    transform: translateX(-50%);
+
+  }
+}
+
+.block-albums-header {
+  .block-decorations {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: 5rem;
+      width: 30rem;
+      top: 2rem;
+      bottom: 2rem;
+      background-image: url(assets/img/albums-header-left.svg);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: left center;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      right: 5rem;
+      width: 30rem;
+      top: 2rem;
+      bottom: 2rem;
+      background-image: url(assets/img/albums-header-right.svg);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: right center;
+    }
+  }
+}
+
+.block-collections-header {
+  .block-decorations {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: -3.5rem;
+      width: 30rem;
+      top: 2rem;
+      bottom: 2rem;
+      background-image: url(assets/img/collections-header-left.svg);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: left center;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      right: 5rem;
+      width: 30rem;
+      top: 2rem;
+      bottom: 2rem;
+      background-image: url(assets/img/collections-header-right.svg);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: right center;
+    }
+  }
+}
+
+.block-ranking-header {
+  .block-ranking-decorations {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: -3.5rem;
+      width: 30rem;
+      top: 2rem;
+      bottom: 2rem;
+      background-image: url(assets/img/kids_with_medal.png);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: left center;
+    }
+  }
+}
+
+.block-cardexchange-header {
+  .block-cardexchange-decorations {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: -3.5rem;
+      width: 30rem;
+      top: 2rem;
+      bottom: 2rem;
+      background-image: url(assets/img/kids.png);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: left center;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      right: 5rem;
+      width: 30rem;
+      top: 2rem;
+      bottom: 2rem;
+      background-image: url(assets/img/stars_3.png);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: right center;
+    }
+  }
+}
+
+
+.finish-registration {
+  .block-decorations {
+    height: 12rem;
+    position: absolute;
+    top: 4rem;
+    right: 3rem;
+    left: 3rem;
+
+    &:before {
+      content: '';
+      background-image: url(assets/img/success-des-l.svg);
+      background-size: auto auto;
+      background-repeat: no-repeat;
+      background-position: 0 0;
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 20rem;
+    }
+
+    &:after {
+      content: '';
+      background-image: url(assets/img/success-des_r.svg);
+      background-size: auto auto;
+      background-repeat: no-repeat;
+      background-position: right 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 20rem;
+    }
+  }
+}

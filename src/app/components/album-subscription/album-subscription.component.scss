@@ -1,0 +1,62 @@
+@import "~src/assets/scss/vars";
+@import "~src/assets/scss/mixins";
+
+.trivia-one-container {
+    width: 800px;
+    height: 500px;
+    font-family: $font-axis;
+}
+
+.header {
+    position: relative;
+    width: 90%;
+    margin: auto;
+    height: 195px;
+
+    &:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        border-bottom: 2px solid #b3b3b3;
+    }
+}
+
+.header-image-one {
+    position: absolute;
+    top: -22.5px;
+}
+
+.header-image-two {
+    position: absolute;
+    right: 0;
+    top: 1rem;
+}
+
+.header-text {
+    position: absolute;
+    font-weight: bold;
+    font-size: 3.5rem;
+    word-wrap: break-word;
+    right: 0;
+    bottom: 1rem;
+}
+
+.content {
+    margin-top: 3rem;
+    margin: auto;
+}
+
+.content-text {
+    width: 506px;
+    font-size: 2.5rem;
+    margin: 3rem auto;
+}
+
+.footer {
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-weight: bold;
+}

@@ -1,0 +1,104 @@
+@import "~src/assets/scss/vars";
+@import "~src/assets/scss/mixins";
+
+.trivia-one-container {
+    width: 834px;
+    height: 780px;
+    font-family: $font-axis;
+}
+
+.header {
+    position: relative;
+    width: 90%;
+    margin: auto;
+    height: 195px;
+
+    &:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        border-bottom: 2px solid #b3b3b3;
+    }
+}
+
+.header-image-one {
+    position: absolute;
+    top: -22.5px;
+}
+
+.header-image-two {
+    position: absolute;
+    right: 0;
+    top: 1rem;
+}
+
+.header-text {
+    width: 240px;
+    position: absolute;
+    font-weight: bold;
+    font-size: 3.5rem;
+    word-wrap: break-word;
+    right: 0;
+    bottom: 1rem;
+}
+
+.content {
+    margin-top: 3rem;
+    margin: auto;
+}
+
+.content-text {
+    width: 506px;
+    font-size: 2.5rem;
+    margin: 3rem auto;
+}
+
+.content-card {
+    width: 105px;
+    height: 148px;
+    object-fit: scale-down;
+    margin: 1rem;
+    padding: 7px;
+    border: 1px solid #b3b3b3;
+}
+
+.content-card-number {
+    color: #b3b3b3;
+    font-size: 4rem;
+    text-align: center;
+}
+
+
+.content-cards {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+}
+
+.footer {
+    position: relative;
+    height: 270px;
+
+    img {
+        position: absolute;
+        bottom: -7.5rem;
+        left: -3rem;
+
+    }
+
+}
+
+.footer-content {
+    position: absolute;
+    margin: 12rem 0;
+    left: 45%;
+    text-align: center;
+}
+
+.footer-text {
+    font-size: 2rem;
+    word-wrap: break-word;
+    margin-bottom: 3rem;
+
+}

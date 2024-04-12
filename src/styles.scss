@@ -1,0 +1,84 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "assets/scss/fonts";
+@import "assets/scss/btns";
+@import "assets/scss/icons";
+@import "~ag-grid-community/dist/styles/ag-grid.css";
+@import "~ag-grid-community/dist/styles/ag-theme-balham.css";
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+  font-size: 7px;
+
+  * {
+    box-sizing: inherit;
+    outline: none;
+    margin: 0;
+    padding: 0;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a,
+button,
+input,
+textarea,
+select,
+.btn {
+  &:focus {
+    outline: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+}
+
+a,
+button {
+  -webkit-transition: none;
+  transition: none;
+  cursor: pointer;
+}
+
+body {
+  font-family: $font-quattrocento;
+}
+
+.site-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  &.modal-open {
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .site-header,
+  .site-footer {
+    flex-shrink: 0;
+  }
+
+  .site-middle {
+    flex: 1 0 auto;
+  }
+}
+
+.coming-soon {
+  color: $color-green;
+  text-transform: uppercase;
+  font-size: 3rem;
+  text-align: center;
+  font-family: $font-axis;
+  padding: 5rem;
+}

@@ -1,0 +1,25 @@
+<fieldset>
+  <legend>Choose Quiz Type</legend>
+  <div class='checkboxes'>
+    <input class='inp-cbx' id="cbx" type="checkbox" name="generic" (change)='genericChange($event)' style="display:none;"
+      [checked]='value'>
+    <label class='cbx' for="cbx">
+      <span>
+        <svg width="12px" height="10px" viewbox="0 0 12 10">
+          <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+        </svg>
+      </span>
+      <span>generic quiz</span>
+    </label>
+    <input class='inp-cbx' id="nonGeneric" type="checkbox" name="nonGeneric" (change)="nonGenericChange($event)" style="display:none;"
+      [checked]='!value'>
+    <label class='cbx' for="nonGeneric">
+      <span>
+        <svg width="12px" height="10px" viewbox="0 0 12 10">
+          <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+        </svg>
+      </span>
+      <span>quiz from album</span>
+    </label>
+  </div>
+</fieldset>

@@ -1,0 +1,20 @@
+@import "~src/assets/scss/vars";
+@import "~src/assets/scss/mixins";
+
+
+.site-middle {
+  margin-top: 10rem;
+}
+
+.error {
+  padding: 2rem;
+  text-align: center;
+
+  .block-title {
+    font-size: 4rem;
+    font-weight: bold;
+    line-height: 1em;
+    font-family: $font-exo;
+    text-transform: uppercase;
+  }
+}

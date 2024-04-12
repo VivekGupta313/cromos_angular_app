@@ -1,0 +1,78 @@
+<div class="form">
+  <div class="form-panel one">
+    <div class="form-header">
+      <h2>Add Cromos</h2>
+    </div>
+    <!-- <div class="form-content"> -->
+    <form #addImageForm="ngForm" (ngSubmit)="addImage(); inputFile.value=''">
+      <div class=" formAll">
+        <div class="formAll--one">
+          <div class="form-group">
+            <label class="labels" for="language">Language</label>
+            <select name="language" id="language" [(ngModel)]="image.language">
+              <option *ngFor="let language of languages$ | async" value={{language.language}}>
+                {{language.language}}
+              </option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="labels" for="level">Level</label>
+            <select name="level" id="level" [(ngModel)]="image.level">
+              <option *ngFor="let l of levels$|async" value={{l.level}}>
+                {{l.level}}
+              </option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="labels" for="theme">Theme</label>
+            <select name="theme" id="theme" required [(ngModel)]="image.theme">
+              <option *ngFor="let coll of themes$|async" value={{coll.theme}}>
+                {{coll.theme}}
+              </option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="labels" for="imageTitle">Image Title</label>
+            <input class='inputs' type="text" id="imageTitle" name="imageTitle" [(ngModel)]="image.title" required
+              #imageTitle />
+          </div>
+          <div class="labels" class="form-group">
+            <label class="labels" for="ImageDescription">Image Description</label>
+            <input class='inputs' type="text" id="imageDesription" name="imageDescription" [(ngModel)]="image.description"
+              required />
+          </div>
+          <div class="form-group">
+            <button [disabled]="addImageForm.form.invalid" type="submit">Add Image</button>
+          </div>
+        </div>
+        <div class="image">
+          <div appClick id="dropzone" appDropZone (hovered)='toggleHover($event)' (dropped)="getFile($event)" (click)='inputFile.click()'
+            [ngClass]="{'hasImage':imageIsDropped}" #dropzone>
+            <div class="
+            dashes">
+              <div class="dropzone-label">
+                <h3>Click to browse or drag an image here</h3>
+              </div>
+              <input class="file-input" type="file" (change)="getFile($event.target.files)" #inputFile required style="display:none"
+                accept="image/*">
+            </div>
+          </div>
+          <div class="progress-bar" *ngIf="percentage | async as pct">
+            <progress class="progress is-info" [value]="pct" max="100">
+            </progress>
+            <div class="progress-bar--number"> {{ pct | number }}%</div>
+          </div>
+          <div *ngIf="snapshot | async as snap">
+            {{ snap.bytesTransferred | fileSize }} of {{ snap.totalBytes | fileSize }}
+            <!-- <div *ngIf="downloadURL | async as url">
+              <h3>Results!</h3>
+              <img [src]="url"><br>
+              <a [href]="url" target="_blank" rel="noopener">Download Me!</a>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <app-image-list [delete]='delete' [addToAlbum]='addToAlbum' [imagesInput]='imagesInput$|async'></app-image-list>
+</div>

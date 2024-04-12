@@ -1,0 +1,35 @@
+@import "~src/assets/scss/vars";
+@import "~src/assets/scss/mixins";
+
+.modal-wrapper {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+  overflow-y: scroll;
+  z-index: 1400;
+  background-color: rgba(#000, .6);
+  display: flex;
+
+  .modal {
+    margin: auto;
+    // max-width: 90rem;
+    border: 3rem solid #B3B3B3;
+    border-radius: 3rem;
+    background-color: #fff;
+    position: relative;
+    min-height: 20rem;
+
+    .modal-header {
+      .modal-close {
+        position: absolute;
+        left: 100%;
+        right: 3rem;
+        margin-left: 2.5rem;
+      }
+    }
+
+    .modal-content {}
+  }
+}

@@ -1,0 +1,31 @@
+<div class="block block-collections-header">
+  <div class="block-decorations"></div>
+  <div class="block-inner">
+    <div class="block-title">
+      ESTA ES TU COLECCIÓN DE CROMOS DEL ALBUM CAMPO<strong style="color:#fff">CAMPO</strong>
+    </div>
+    <!-- <div class="block-title">
+        COLECCIÓN <span class="collection color-lemon">{{albumSingle?.collection}}</span> > ALBUM <strong>{{albumSingle?.name}}</strong>
+      </div> -->
+  </div>
+</div>
+<div class="content-album-overview">
+  <div class="content-mapa">
+    <div class='mapa green'>TENGO {{existingCards}} CROMOS</div>
+    <div class='mapa gray'>TENGO {{repeatCards}} REPETIDOS</div>
+    <div class='mapa red'>ME FALTAN {{missingCards}} CROMOS</div>
+  </div>
+  <div class="album-cards-overview">
+    <div class="cards" *ngFor="let card of cards">
+      <div class="card">
+        <div [class]="checkCardExist(card)">{{card}}</div>
+      </div>
+
+    </div>
+  </div>
+  <div CLASS="footer">
+    <button class="btn btn-new gray" (click)="openCollections()">VER OTROS<br /> ALBUMS</button>
+    <button *ngIf="allowXchange" class="btn btn-new red" (click)="openCardExchange()">CANJEAR<br />
+      REPETIDOS</button>
+  </div>
+</div>

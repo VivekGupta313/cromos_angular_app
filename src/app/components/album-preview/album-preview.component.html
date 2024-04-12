@@ -1,0 +1,19 @@
+<div class="album-item">
+  <div class="item-img item-img-green" [ngStyle]="{'background': color}" >
+    <!-- <img src="https://source.unsplash.com/random/310x420" alt=""> -->
+    <!-- <img src="../../../assets/img/missing_image.png"> -->
+    <img [src]="album.albumImageUrl" alt="">
+    <div class="item-label">
+      <span class="item-label-inner">{{album.collection.substring(0 , 1 )}}</span></div>
+  </div>
+  <div class="item-content">
+    <div class="item-title">{{album.name}}</div>
+    <div class="item-category" [ngStyle]="{'color': color}" > {{album.collection}}</div>
+    <div class="item-info">
+      <!--<span>CAT</span>
+      <span>CAS</span>
+      <span>ING</span> -->
+    </div>
+  </div>
+  <a class="item-link" (click)="openAlbum(album)"></a>
+</div>

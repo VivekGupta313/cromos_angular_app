@@ -1,0 +1,43 @@
+<div class="block block-ranking-header">
+  <div class="block-ranking-decorations"></div>
+  <div class="block-inner">
+    <div class="block-title">
+      ESTE ES EL RANKING DE CROMOS
+    </div>
+    <!-- <div class="block-title">
+          COLECCIÓN <span class="collection color-lemon">{{albumSingle?.collection}}</span> > ALBUM <strong>{{albumSingle?.name}}</strong>
+        </div> -->
+  </div>
+</div>
+<div class="block-ranking-sub-header">
+  <div class="block-inner">
+    <div class="block-title">
+      COLECCIÓN <span class="collection color-lemon">{{album.collection}}</span> > ALBUM <strong>{{album.name}}</strong>
+    </div>
+  </div>
+</div>
+<div class="block-medal">
+  <img src="assets/img/medal.png">
+</div>
+
+<div class="ranking-content">
+  <div class="ranking-list">
+    <div class="user" *ngFor="let user of users; let i = index">
+      <app-ranking-user [ranking]="i" [user]="user" [index]="index"></app-ranking-user>
+    </div>
+  </div>
+
+  <div class="back-container" (click)="goBack()">
+    VUELVE ATRAS
+  </div>
+
+  <!-- <div class="content-user-list">
+    <div class="user" *ngFor="let user of users">
+      <app-item [group]='user' [selected]=false [private]=false [joined]=false></app-item>
+    </div>
+  </div> -->
+</div>
+<div class="trophy-container">
+  <img src="assets/img/crown.png">
+
+</div>

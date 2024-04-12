@@ -1,0 +1,103 @@
+@import "~src/assets/scss/mixins";
+@import "~src/assets/scss/vars";
+
+.block-contact-form {
+  background-color: #dedbe1;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  .contact-form {
+    width: 100%;
+    max-width: 83rem;
+    margin-left: auto;
+    margin-right: auto;
+    .form-title {
+      margin-bottom: 30px;
+      color: #4d4d4d;
+      font-family: $font-axis;
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 3.6rem;
+      text-align: center;
+    }
+    form {
+      .form-line {
+        position: relative;
+        + .form-line {
+          margin-top: 3rem;
+        }
+        &.submit-line {
+          text-align: center;
+        }
+        [type="text"],
+        textarea {
+          width: 100%;
+          border-radius: 1rem;
+          border: 0;
+          background-color: #fff;
+          font-family: $font-quattrocento;
+          font-size: 2.6rem;
+        }
+        [type="text"] {
+          height: 5.5rem;
+          padding: 0 1.5rem;
+          + .form-label {
+            margin-top: -5.5rem;
+          }
+          &:focus {
+            + label {
+              position: absolute;
+              top: -2rem;
+              margin-top: 0;
+              height: auto;
+              font-size: 1.7rem;
+            }
+          }
+        }
+        textarea {
+          height: 13rem;
+          resize: none;
+          padding: 1.5rem;
+          + .fieldFilled {
+            padding-top: 0!important;
+          }
+          &:focus {
+            + label {
+              margin-top: 0;
+              height: auto;
+              position: absolute;
+              top: -2rem;
+              font-size: 1.7rem;
+              padding-top: 0;
+            }
+          }
+          + .form-label {
+            margin-top: -13rem;
+            height: 13rem;
+            align-items: flex-start;
+            padding-top: 1.3rem;
+          }
+        }
+        .form-label {
+          font-family: $font-quattrocento;
+          font-size: 2.2rem;
+          color: #666666;
+          height: 5.5rem;
+          display: flex;
+          align-items: center;
+          padding-left: 1.5rem;
+          position: relative;
+          z-index: 1;
+          transition: top linear .2s;
+          top: 0;
+          &.fieldFilled {
+            position: absolute;
+            top: -2rem;
+            margin-top: 0!important;
+            height: auto;
+            font-size: 1.5rem;
+          }
+        }
+      }
+    }
+  }
+}

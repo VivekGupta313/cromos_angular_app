@@ -1,0 +1,165 @@
+@import "~src/assets/scss/mixins";
+@import "~src/assets/scss/vars";
+
+.site-header {
+  padding: 2rem 0;
+  position: fixed;
+  background-color: #fff;
+  z-index: 999;
+  width: 100%;
+
+  &:not(.home) {
+    border-bottom: .9rem solid #22B573;
+  }
+
+  .header-inner {
+    //@extend .container;
+    display: flex;
+    align-items: center;
+    padding-left: 5rem;
+    padding-right: 5rem;
+
+    .header-logo {
+      img {
+        height: 40px;
+        width: auto;
+      }
+    }
+
+    .header-menu {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      font-family: $font-exo;
+      font-size: 2.2rem;
+
+      ul.user-menu {
+        @extend .panel-list;
+        display: flex;
+
+        li {
+          +li {
+            margin-left: 30px;
+          }
+
+          &.active {
+            a {
+              color: $color-pr;
+            }
+
+            &:hover {
+              a {
+                color: $color-pr;
+              }
+            }
+          }
+
+          &:hover {
+            a {
+              color: $color-text;
+            }
+          }
+
+          a {
+            color: $color-text-alt;
+            text-decoration: none;
+            text-transform: uppercase;
+          }
+        }
+      }
+
+      .auth,
+      .registro {
+        margin-left: 40px;
+        // margin-bottom: 4px;
+
+        a {
+          text-decoration: none;
+          text-transform: uppercase;
+
+          &.username {}
+
+          &:not(.btn) {
+            color: $color-text-alt;
+          }
+
+          &:hover {
+            color: $color-text;
+          }
+
+        }
+      }
+    }
+
+
+    .auth ul li {
+      list-style: none;
+    }
+
+
+    ul li .sign-out {
+      visibility: hidden;
+      opacity: 0;
+      display: none;
+    }
+
+    .auth ul:hover>li .sign-out {
+      visibility: visible;
+      opacity: 1;
+      display: block;
+      position: absolute;
+      margin-top: 2px;
+      transition: all 0.5s ease;
+    }
+
+
+
+    ul li.admin-list {
+      display: block;
+      position: relative;
+      text-decoration: none;
+      transition-duration: 0.5s;
+    }
+
+    ul li ul {
+      list-style: none;
+      background: #fff;
+      visibility: hidden;
+      opacity: 0;
+      position: absolute;
+      transition: all 0.5s ease;
+      text-align: center;
+      display: none;
+      z-index: 10;
+    }
+
+    ul li ul li {
+      float: left;
+      width: 100%;
+      padding: 0.5em 1em;
+      margin: auto !important;
+
+      & a {
+        white-space: nowrap;
+      }
+    }
+
+    ul li:hover>ul,
+    ul li ul:hover {
+      visibility: visible;
+      opacity: 1;
+      display: block;
+    }
+
+    ul li ul li:hover,
+    ul li ul li:hover>a {
+      color: $color-pr !important;
+    }
+
+
+
+
+
+  }
+}

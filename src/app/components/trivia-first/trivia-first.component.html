@@ -1,0 +1,33 @@
+<div class="trivia-one-container">
+    <div class="header">
+        <img class="header-image-one" src="../../../assets/img/kid-girl.png">
+        <img class="header-image-two" src="../../../assets/img/stars.png">
+        <div class="header-text">EN BUENAHORA
+            ANTONIO!
+        </div>
+    </div>
+    <div class="content">
+        <div class="content-text">
+            Estos son los CROMOS que te ganaste hoy para
+            tu album CAMPO, de la colección BIOLOGÍA:
+        </div>
+        <div class="content-cards">
+            <div *ngFor="let card of cards">
+                <img class="content-card" src={{card.url}}>
+                <div class="content-card-number">{{card.nrOfCard}}</div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <img src='../../../assets/img/hand.png'>
+        <div class="footer-content">
+            <div class="footer-text">
+                Puedes ganar 2 CROMOS más, respondiendo TRIVIAS
+                <br>
+                Estos CROMOS están dados al azar,<br>
+                <br>
+                no te preocupes si te tocan repetidos, CANJÉALOS!
+            </div>
+            <button class='btn btn-round btn-green' (click)="openModal('trivia-second')">CONTINUA</button>
+        </div>
+    </div>

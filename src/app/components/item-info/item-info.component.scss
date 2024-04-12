@@ -1,0 +1,67 @@
+@import "~src/assets/scss/vars";
+@import "~src/assets/scss/mixins";
+
+
+.item-info {
+    z-index: 99999;
+    font-family: $font-quattrocento;
+    box-sizing: border-box;
+    position: absolute;
+    width: 380px;
+    // height: 110px;
+    left: 3.5rem;
+    top: 100%;
+    background-color: #fc6460;
+    border-radius: 1.5rem;
+    @extend .corner-top;
+    box-shadow: 0 0 0 2rem rgba(0, 0, 0, 0.7);
+    padding: 5px;
+}
+
+.item-info-close {
+    position: absolute;
+    left: 98%;
+    color: #ffff;
+}
+
+.item-info-text {
+    text-align: center;
+    font-size: 3.5rem;
+    letter-spacing: 1px;
+    word-wrap: break-word;
+    font-weight: bold;
+    color: #ffff;
+    padding: 1rem;
+}
+
+.buttons {
+    margin-top: 2rem;
+}
+
+.item-info-subtext {
+    font-size: 2rem;
+    letter-spacing: 1px;
+    word-wrap: break-word;
+    color: #ffff;
+    padding: 1rem;
+}
+
+.item-info-maintxt {
+    font-size: 3rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    word-wrap: break-word;
+    color: #ffff;
+    padding: 1rem;
+    margin-bottom:-2rem;
+}
+
+[type="text"] {
+    width: 50%;
+    background-color: #fff;
+    border-radius: .5rem;
+    border: 0;
+    padding: 2rem;
+    font-size: 2rem;
+    text-align: center;
+}

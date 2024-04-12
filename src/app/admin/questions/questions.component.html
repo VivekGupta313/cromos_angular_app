@@ -1,0 +1,94 @@
+<div class="form">
+  <div class="form-panel one">
+    <div class="form-header">
+      <h1>Add Quiz</h1>
+    </div>
+    <div class="form-content">
+      <form #addQuestionForm="ngForm" (ngSubmit)="addQuestion($event)">
+        <div class="form-group">
+          <label class="labels" for="collection">Collection</label>
+          <select name="collection" id="colection" [(ngModel)]="question.collection">
+            <option *ngFor="let coll of collections$|async" value={{coll.collection}}>
+              {{coll.collection}}
+            </option>
+          </select>
+        </div>
+        <div class='selects-inline'>
+          <div class="form-group">
+            <label class="labels" for="level">Level</label>
+            <select name="level" id="level" [(ngModel)]="question.level">
+              <option *ngFor="let l of levels$|async" value={{l.level}}>
+                {{l.level}}
+              </option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="labels" for="language">Language</label>
+            <select name="language" id="language" [(ngModel)]="question.language">
+              <option *ngFor="let lang of languages$ | async" value={{lang.language}}>
+                {{lang.language}}
+              </option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="labels" for="question">Question</label>
+          <input name="question" class="inputs" type="text" [(ngModel)]="question.question" required>
+        </div>
+        <div class="images-answers">
+          <div class="formAll--two">
+            <div appClick id="dropzone" appDropZone (hovered)='toggleHover($event)' (dropped)="getFile($event)" (click)='inputFile.click()'
+              [ngClass]="{'hasImage':imageIsDropped}" #dropzone>
+              <div class="
+                  dashes">
+                <div class="dropzone-label">
+                  <h3>Click to browse or drag an image here</h3>
+                </div>
+                <input class="file-input" type="file" (change)="getFile($event.target.files)" #inputFile style="display:none"
+                  accept="image/*">
+              </div>
+            </div>
+            <div class="progress-bar" *ngIf="percentage | async as pct">
+              <progress class="progress is-info" [value]="pct" max="100">
+              </progress>
+              <div class="progress-bar--number"> {{ pct | number }}%</div>
+            </div>
+            <!-- <div *ngIf="snapshot | async as snap">
+              {{ snap.bytesTransferred | fileSize }} of {{ snap.totalBytes | fileSize }} -->
+            <!-- <div *ngIf="downloadURL | async as url">
+                    <h3>Results!</h3>
+                    <img [src]="url"><br>
+                    <a [href]="url" target="_blank" rel="noopener">Download Me!</a>
+                  </div> -->
+            <!-- </div> -->
+          </div>
+          <div class="form-group answers">
+            <label class="labels" for="answer">Answers</label>
+            <div class="answer" *ngFor="let answer of question.answers; let i = index">
+              <input class="inputs-answer" name="answer" id="answer" type="text" [(ngModel)]="question.answers[i].answer"
+                required>
+              <input name="correct" id="correct" type="checkbox" id='check{{i}}' [(ngModel)]="question.answers[i].correct">
+              <label class="check{{i}}">
+                <div *ngIf='i === 0; else notCorrect'>
+                  <svg class="svg-icon-correct" viewBox="0 0 20 20">
+                    <path d="M10.219,1.688c-4.471,0-8.094,3.623-8.094,8.094s3.623,8.094,8.094,8.094s8.094-3.623,8.094-8.094S14.689,1.688,10.219,1.688 M10.219,17.022c-3.994,0-7.242-3.247-7.242-7.241c0-3.994,3.248-7.242,7.242-7.242c3.994,0,7.241,3.248,7.241,7.242C17.46,13.775,14.213,17.022,10.219,17.022 M15.099,7.03c-0.167-0.167-0.438-0.167-0.604,0.002L9.062,12.48l-2.269-2.277c-0.166-0.167-0.437-0.167-0.603,0c-0.166,0.166-0.168,0.437-0.002,0.603l2.573,2.578c0.079,0.08,0.188,0.125,0.3,0.125s0.222-0.045,0.303-0.125l5.736-5.751C15.268,7.466,15.265,7.196,15.099,7.03"></path>
+                  </svg>
+                </div>
+                <ng-template #notCorrect>
+                  <svg class="svg-icon-not-correct" viewBox="0 0 20 20">
+                    <path d="M10.185,1.417c-4.741,0-8.583,3.842-8.583,8.583c0,4.74,3.842,8.582,8.583,8.582S18.768,14.74,18.768,10C18.768,5.259,14.926,1.417,10.185,1.417 M10.185,17.68c-4.235,0-7.679-3.445-7.679-7.68c0-4.235,3.444-7.679,7.679-7.679S17.864,5.765,17.864,10C17.864,14.234,14.42,17.68,10.185,17.68 M10.824,10l2.842-2.844c0.178-0.176,0.178-0.46,0-0.637c-0.177-0.178-0.461-0.178-0.637,0l-2.844,2.841L7.341,6.52c-0.176-0.178-0.46-0.178-0.637,0c-0.178,0.176-0.178,0.461,0,0.637L9.546,10l-2.841,2.844c-0.178,0.176-0.178,0.461,0,0.637c0.178,0.178,0.459,0.178,0.637,0l2.844-2.841l2.844,2.841c0.178,0.178,0.459,0.178,0.637,0c0.178-0.176,0.178-0.461,0-0.637L10.824,10z"></path>
+                  </svg>
+                </ng-template>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <button [disabled]="addQuestionForm.form.invalid" type="submit">Add Question</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</div>
+<app-questions-list></app-questions-list>
